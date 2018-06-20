@@ -10,6 +10,15 @@
             });
         }
 
+        $(document).ready(function () {
+            $('.modal').modal();
+           // setTimeout(newPage, 4000);
+        });
+
+       //function newPage() {
+        //    setTimeout("window.location='/'", 4000);
+       // }
+
     </script>
 </head>
 
@@ -24,46 +33,34 @@
             </a>
             <ul class="left hide-on-med-and-down">
                 <li>
-                    <a href="/ew">
-                        <img class="ewemoji" src="assets/img/emojis/ewemoji.png">
-                    </a>
+                    <img class="modal-trigger ewemoji onuserhome" data-target="modalbuttonclick" src="assets/img/emojis/ewemoji.png">
                 </li>
                 <li>
-                    <a href="/bff">
-                        <img class="bffsemoji" src="assets/img/emojis/bffs.png">
-                    </a>
+                    <img class="modal-trigger bffsemoji onuserhome" data-target="modalbuttonclick" src="assets/img/emojis/bffs.png">
                 </li>
                 <li>
-                    <a href="/lol">
-                        <img class="lolemoji" src="assets/img/emojis/lolemoji.png">
-                    </a>
+                    <img class="modal-trigger lolemoji onuserhome" data-target="modalbuttonclick" src="assets/img/emojis/lolemoji.png">
                 </li>
                 <li>
-                    <a href="/nsfw">
-                        <img class="nsfwemoji" src="assets/img/emojis/nsfwemoji.png">
-                    </a>
+                    <img class="modal-trigger nsfwemoji onuserhome" data-target="modalbuttonclick" src="assets/img/emojis/nsfwemoji.png">
                 </li>
                 <li>
-                    <a href="/fail">
-                        <img class="failemoji" src="assets/img/emojis/failemoji.png">
-                    </a>
+                    <img class="modal-trigger failemoji onuserhome" data-target="modalbuttonclick" src="assets/img/emojis/failemoji.png">
                 </li>
                 <li>
-                    <a href="/wtfam">
-                        <img class="wtfemoji" src="assets/img/emojis/wtfemoji.png">
-                    </a>
+                    <img class="modal-trigger wtfemoji onuserhome" data-target="modalbuttonclick" src="assets/img/emojis/wtfemoji.png">
                 </li>
             </ul>
             <ul class="right hide-on-med-and-down">
                 <li>
-                    <a href="/halloffame">
-                        <img class="fameemoji" src="assets/img/emojis/fameemoji2.png">
-                    </a>
+                    <img class="modal-trigger fameemoji onuserhome" data-target="modalbuttonclick" src="assets/img/emojis/fameemoji2.png">
                 </li>
                 <li>
-                    <a href="/hallofshame">
-                        <img class="shameemoji" src="assets/img/emojis/shameemoji2.png">
-                        </i>
+                    <img class="modal-trigger shameemoji onuserhome" data-target="modalbuttonclick" src="assets/img/emojis/shameemoji2.png">
+                </li>
+                <li>
+                    <a href="/logout">
+                        <img class="door modal-trigger onuserhome" data-target="modalsignout" src="assets/img/emojis/door.png">
                     </a>
                 </li>
             </ul>
@@ -72,28 +69,40 @@
 
     <ul class="sidenav" id="mobile-demo">
         <li>
-            <a href="/ew">EW</a>
+            <a class="modal-trigger" data-target=
+            "modalbuttonclick">EW</a>
         </li>
         <li>
-            <a href="/bff">BFF</a>
+            <a class="modal-trigger" data-target=
+            "modalbuttonclick">BFF</a>
         </li>
         <li>
-            <a href="/lol">LOL</a>
+            <a class="modal-trigger" data-target=
+            "modalbuttonclick">LOL</a>
         </li>
         <li>
-            <a href="/nsfw">NSFW</a>
+            <a class="modal-trigger" data-target=
+            "modalbuttonclick">NSFW</a>
         </li>
         <li>
-            <a href="/fail">FAIL</a>
+            <a class="modal-trigger" data-target=
+            "modalbuttonclick">FAIL</a>
         </li>
         <li>
-            <a href="/wtfam">WTFam</a>
+            <a class="modal-trigger" data-target=
+            "modalbuttonclick">WTFam</a>
         </li>
         <li>
-            <a href="/halloffame">Hall Of Fame</a>
+            <a class="modal-trigger" data-target=
+            "modalbuttonclick">Hall Of Fame</a>
         </li>
         <li>
-            <a href="/hallofshame">Hall Of Shame</i>
+            <a class="modal-trigger" data-target=
+            "modalbuttonclick">Hall Of Shame</i>
+            </a>
+        </li>
+        <li>
+            <a class="modal-trigger" data-target="modalsignout">Sign Out</i>
             </a>
         </li>
     </ul>
@@ -153,7 +162,8 @@
 
                 <div id="signuptab" class="signup">
                     <div class="jointext">OMG! You're joining?! It's the TEXT day ever!</div>
-                    {{!-- <form class="signupform col s12 m12" id="profile"> --}}
+                    {{!--
+                    <form class="signupform col s12 m12" id="profile"> --}}
                         <form class="signupform col s12 col m12" id="profile" method="post" action="/signup">
                             <div class="row">
                                 <div class="input-field col s12 usernameform">
@@ -299,8 +309,15 @@
                 </div>
             </div>
 
+            <div id="modalbuttonclick" class="modal modal-close">
+                <div class="modal-content">
+                    <h4>YOOO, texter! Plzzz sign up or sign in and then click this page again. Kthxbye! 😜</h4>
+                </div>
+            </div>
+
         </div>
 
+        <script type="text/javascript" src="assets/javascript/uploadfile.js"></script>
+        <script type="text/javascript" src="assets/javascript/materialize.min.js"></script>
+        <script type="text/javascript" src="assets/javascript/materializejs.js"></script>
 </body>
-
-</html>

@@ -17,7 +17,7 @@ var router = function (app) {
         response.render('userhome')
     });
 
-    
+
     app.get('/api/lol', function (request, response) {
         db.Text.findAll(
             {
@@ -233,6 +233,14 @@ var router = function (app) {
             })
         }
     });
+
+    app.get('/halloffame', function (request, response) {
+        response.render('halloffame')
+    })
+
+    app.get('/hallofshame', function (request, response) {
+        response.render('hallofshame')
+    })
 
 }
 module.exports = router;

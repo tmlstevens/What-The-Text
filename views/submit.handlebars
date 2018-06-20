@@ -1,6 +1,6 @@
 <nav>
     <div class="nav-wrapper">
-        <a href="index.html" class="brandtitle brand-logo">
+        <a href="/" class="brandtitle brand-logo">
             <img class="logo" src="assets/img/logo.png">
         </a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger">
@@ -8,52 +8,39 @@
         </a>
         <ul class="left hide-on-med-and-down">
             <li>
-                <a href="#">
-                    <img class="ewemoji" src="../public/assets/img/emojis/ewemoji.png">
-                </a>
+                <img class="ewemoji onuserhome" src="assets/img/emojis/ewemoji.png">
             </li>
             <li>
-                <a href="#">
-                    <img class="bffsemoji" src="assets/img/emojis/bffs.png">
-                </a>
+                <img class="bffemoji onuserhome" src="assets/img/emojis/bffs.png">
             </li>
             <li>
-                <a href="#">
-                    <img class="lolemoji" src="assets/img/emojis/lolemoji.png">
-                </a>
+                <img class="lolemoji onuserhome" src="assets/img/emojis/lolemoji.png">
             </li>
             <li>
-                <a href="#">
-                    <img class="nsfwemoji" src="assets/img/emojis/nsfwemoji.png">
-                </a>
+                <img class="nsfwemoji onuserhome" src="assets/img/emojis/nsfwemoji.png">
             </li>
             <li>
-                <a href="#">
-                    <img class="failemoji" src="assets/img/emojis/failemoji.png">
-                </a>
+                <img class="failemoji onuserhome" src="assets/img/emojis/failemoji.png">
             </li>
             <li>
-                <a href="#">
-                    <img class="wtfemoji" src="assets/img/emojis/wtfemoji.png">
-                </a>
+                <img class="wtfamemoji onuserhome" src="assets/img/emojis/wtfemoji.png">
             </li>
         </ul>
         <ul class="right hide-on-med-and-down">
             <li>
-                <a href="#">
-                    <img class="fameemoji" src="assets/img/emojis/fameemoji2.png">
+                <a href="/halloffame">
+                    <img class="fameemoji onuserhome" src="assets/img/emojis/fameemoji2.png">
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <img class="shameemoji" src="assets/img/emojis/shameemoji2.png">
-                    </i>
+                <a href="/hallofshame">
+                    <img class="shameemoji onuserhome" src="assets/img/emojis/shameemoji2.png">
+                </a>
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <img class="door" src="assets/img/emojis/door.png">
-                    </i>
+                <a href="/logout">
+                    <img class="door modal-trigger onuserhome" data-target="modalsignout" src="assets/img/emojis/door.png">
                 </a>
             </li>
         </ul>
@@ -62,32 +49,33 @@
 
 <ul class="sidenav" id="mobile-demo">
     <li>
-        <a href="#">EW</a>
+        <a class="ewemoji">EW</a>
     </li>
     <li>
-        <a href="#">BFF</a>
+        <a class="bffemoji">BFF</a>
     </li>
     <li>
-        <a href="#">LOL</a>
+        <a class="lolemoji">LOL</a>
     </li>
     <li>
-        <a href="#">NSFW</a>
+        <a class="nsfwemoji">NSFW</a>
     </li>
     <li>
-        <a href="#">FAIL</a>
+        <a class="failemoji">FAIL</a>
     </li>
     <li>
-        <a href="#">WTFam</a>
+        <a class="wtfamemoji">WTFam</a>
     </li>
     <li>
-        <a href="#">Hall Of Fame</a>
-    </li>
-    <li>
-        <a href="#">Hall Of Shame</i>
+        <a href="/halloffame">Hall Of Fame</i>
         </a>
     </li>
     <li>
-        <a href="#">Sign Out</i>
+        <a href="/hallofshame">Hall Of Shame</i>
+        </a>
+    </li>
+    <li>
+        <a class="modal-trigger" data-target="modalsignout" href="#modalsignout">Sign Out</i>
         </a>
     </li>
 </ul>
@@ -203,5 +191,76 @@
             });
         }
 
+        $.get('/api/userhome')
+            .then((response) => {
+                for (var i = 0; i < response.length; i++) {
+                    var imageElem = $('<a data-textId=' + response[i].id + ' href="/textfocus/' + response[i].id + '"><img class="whatthetextimg" src="' + response[i].image + '"></a>' + '<br>');
+                    $('.everyonestextsdiv').prepend(imageElem);
+                }
+            });
+        $('.lolemoji').on('click', function (request, response) {
+            $.get('/api/lol')
+                .then((response) => {
+                    $('.everyonestextsdiv').empty();
+                    for (var i = 0; i < response.length; i++) {
+                        var lolElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
+                        $('.everyonestextsdiv').prepend(lolElem);
+                    }
+                });
+        });
+        $('.ewemoji').on('click', function (request, response) {
+            $.get('/api/ew')
+                .then((response) => {
+                    $('.everyonestextsdiv').empty();
+                    for (var i = 0; i < response.length; i++) {
+                        var ewElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
+                        $('.everyonestextsdiv').prepend(ewElem);
+                    }
+                });
+        });
+
+        $('.bffemoji').on('click', function (request, response) {
+            $.get('/api/bff')
+                .then((response) => {
+                    $('.everyonestextsdiv').empty();
+                    for (var i = 0; i < response.length; i++) {
+                        var bffElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
+                        $('.everyonestextsdiv').prepend(bffElem);
+                    }
+                });
+        });
+
+        $('.nsfwemoji').on('click', function (request, response) {
+            $.get('/api/nsfw')
+                .then((response) => {
+                    $('.everyonestextsdiv').empty();
+                    for (var i = 0; i < response.length; i++) {
+                        var nsfwElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
+                        $('.everyonestextsdiv').prepend(nsfwElem);
+                    }
+                });
+        });
+
+        $('.failemoji').on('click', function (request, response) {
+            $.get('/api/fail')
+                .then((response) => {
+                    $('.everyonestextsdiv').empty();
+                    for (var i = 0; i < response.length; i++) {
+                        var failElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
+                        $('.everyonestextsdiv').prepend(failElem);
+                    }
+                });
+        });
+
+        $('.wtfamemoji').on('click', function (request, response) {
+            $.get('/api/wtfam')
+                .then((response) => {
+                    $('.everyonestextsdiv').empty();
+                    for (var i = 0; i < response.length; i++) {
+                        var wtfamElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
+                        $('.everyonestextsdiv').prepend(wtfamElem);
+                    }
+                });
+        });
     });
 </script>

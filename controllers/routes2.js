@@ -16,7 +16,7 @@
 
 // //  logging out         app.put('/:userId/logout'   update user login data, logged_in = false
 
-// // var path = require("path");
+// var path = require("path");
 
 // var express = require('express')
 // var router = express.Router()
@@ -52,13 +52,13 @@
 // //   response.render('fail')
 // // })
 
-// // router.get('/halloffame', function (request, response) {
-// //   response.render('halloffame')
-// // })
+// router.get('/halloffame', function (request, response) {
+//   response.render('halloffame')
+// })
 
-// // router.get('/hallofshame', function (request, response) {
-// //   response.render('hallofshame')
-// // })
+// router.get('/hallofshame', function (request, response) {
+//   response.render('hallofshame')
+// })
 
 // // router.get('/lol', function (request, response) {
 // //   response.render('lol')
