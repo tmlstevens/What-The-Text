@@ -1,24 +1,11 @@
 <head>
     <script type="text/javascript">
-
         if (DYN_WEB.Scroll_Div.isSupported()) {
-
             DYN_WEB.Event.domReady(function () {
                 var wndo = new DYN_WEB.Scroll_Div('wn', 'lyr');
                 wndo.makeSmoothAuto({ axis: 'v', bRepeat: true, repeatId: 'rpt', speed: 10, bPauseResume: true });
-
             });
         }
-
-        //$(document).ready(function () {
-          //  $('.modal').modal();
-           // setTimeout(newPage, 4000);
-       // });
-
-       //function newPage() {
-        //    setTimeout("window.location='/'", 4000);
-       // }
-
     </script>
 </head>
 
@@ -33,34 +20,46 @@
             </a>
             <ul class="left hide-on-med-and-down">
                 <li>
-                    <img class="modal-trigger ewemoji onuserhome" data-target="modalbuttonclick" src="assets/img/emojis/ewemoji.png">
+                    <a href="/ew">
+                        <img class="ewemoji" src="assets/img/emojis/ewemoji.png">
+                    </a>
                 </li>
                 <li>
-                    <img class="modal-trigger bffemoji onuserhome" data-target="modalbuttonclick" src="assets/img/emojis/bffs.png">
+                    <a href="/bff">
+                        <img class="bffsemoji" src="assets/img/emojis/bffs.png">
+                    </a>
                 </li>
                 <li>
-                    <img class="modal-trigger lolemoji onuserhome" data-target="modalbuttonclick" src="assets/img/emojis/lolemoji.png">
+                    <a href="/lol">
+                        <img class="lolemoji" src="assets/img/emojis/lolemoji.png">
+                    </a>
                 </li>
                 <li>
-                    <img class="modal-trigger nsfwemoji onuserhome" data-target="modalbuttonclick" src="assets/img/emojis/nsfwemoji.png">
+                    <a href="/nsfw">
+                        <img class="nsfwemoji" src="assets/img/emojis/nsfwemoji.png">
+                    </a>
                 </li>
                 <li>
-                    <img class="modal-trigger failemoji onuserhome" data-target="modalbuttonclick" src="assets/img/emojis/failemoji.png">
+                    <a href="/fail">
+                        <img class="failemoji" src="assets/img/emojis/failemoji.png">
+                    </a>
                 </li>
                 <li>
-                    <img class="modal-trigger wtfamemoji onuserhome" data-target="modalbuttonclick" src="assets/img/emojis/wtfemoji.png">
+                    <a href="/wtfam">
+                        <img class="wtfemoji" src="assets/img/emojis/wtfemoji.png">
+                    </a>
                 </li>
             </ul>
             <ul class="right hide-on-med-and-down">
                 <li>
-                    <img class="modal-trigger fameemoji onuserhome" data-target="modalbuttonclick" src="assets/img/emojis/fameemoji2.png">
+                    <a href="/halloffame">
+                        <img class="fameemoji" src="assets/img/emojis/fameemoji2.png">
+                    </a>
                 </li>
                 <li>
-                    <img class="modal-trigger shameemoji onuserhome" data-target="modalbuttonclick" src="assets/img/emojis/shameemoji2.png">
-                </li>
-                <li>
-                    <a href="/logout">
-                        <img class="door modal-trigger onuserhome" data-target="modalsignout" src="assets/img/emojis/door.png">
+                    <a href="/hallofshame">
+                        <img class="shameemoji" src="assets/img/emojis/shameemoji2.png">
+                        </i>
                     </a>
                 </li>
             </ul>
@@ -69,32 +68,28 @@
 
     <ul class="sidenav" id="mobile-demo">
         <li>
-            <a class="modal-trigger" data-target="modalbuttonclick">EW</a>
+            <a href="/ew">EW</a>
         </li>
         <li>
-            <a class="modal-trigger" data-target="modalbuttonclick">BFF</a>
+            <a href="/bff">BFF</a>
         </li>
         <li>
-            <a class="modal-trigger" data-target="modalbuttonclick">LOL</a>
+            <a href="/lol">LOL</a>
         </li>
         <li>
-            <a class="modal-trigger" data-target="modalbuttonclick">NSFW</a>
+            <a href="/nsfw">NSFW</a>
         </li>
         <li>
-            <a class="modal-trigger" data-target="modalbuttonclick">FAIL</a>
+            <a href="/fail">FAIL</a>
         </li>
         <li>
-            <a class="modal-trigger" data-target="modalbuttonclick">WTFam</a>
+            <a href="/wtfam">WTFam</a>
         </li>
         <li>
-            <a class="modal-trigger" data-target="modalbuttonclick">Hall Of Fame</a>
+            <a href="/halloffame">Hall Of Fame</a>
         </li>
         <li>
-            <a class="modal-trigger" data-target="modalbuttonclick">Hall Of Shame</i>
-            </a>
-        </li>
-        <li>
-            <a class="modal-trigger" data-target="modalsignout">Sign Out</i>
+            <a href="/hallofshame">Hall Of Shame</i>
             </a>
         </li>
     </ul>
@@ -154,25 +149,26 @@
 
                 <div id="signuptab" class="signup">
                     <div class="jointext">OMG! You're joining?! It's the TEXT day ever!</div>
-                    <form class="signupform col s12 col m12" id="profile" method="post" action="/signup">
-                        <div class="row">
-                            <div class="input-field col s12 usernameform">
-                                <i class="material-icons prefix">account_circle</i>
-                                <input name='username' id="icon_prefix username2" type="text" class="validate">
-                                <label for="icon_prefix username2">Pick A Username</label>
+                    {{!-- <form class="signupform col s12 m12" id="profile"> --}}
+                        <form class="signupform col s12 col m12" id="profile" method="post" action="/signup">
+                            <div class="row">
+                                <div class="input-field col s12 usernameform">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    <input name='username' id="icon_prefix username2" type="text" class="validate">
+                                    <label for="icon_prefix username2">Pick A Username</label>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="input-field col s12 passwordform">
-                                <i class="material-icons prefix">lock</i>
-                                <input name='password' id="icon_prefix" type="text" class="validate new-password">
-                                <label for="icon_prefix password2">Pick A Password</label>
+                            <div class="row">
+                                <div class="input-field col s12 passwordform">
+                                    <i class="material-icons prefix">lock</i>
+                                    <input name='password' id="icon_prefix" type="text" class="validate new-password">
+                                    <label for="icon_prefix password2">Pick A Password</label>
+                                </div>
                             </div>
-                        </div>
 
-                        <button data-target="modalsignup" type="submit" class="modal-trigger btn btn-primary signupbutton light-blue lighten-2">Sign Up</button>
-                    </form>
+                            <button data-target="modalsignup" type="submit" class="modal-trigger btn btn-primary signupbutton light-blue lighten-2">Sign Up</button>
+                        </form>
                 </div>
             </div>
 
@@ -287,7 +283,6 @@
                 </div>
             </div>
 
-            {{!--
             <div id="modalsignup" class="modal modal-close">
                 <div class="modal-content">
                     <h4>Thanks for signing up! 😎</h4>
@@ -297,12 +292,6 @@
             <div id="modalsignin" class="modal modal-close">
                 <div class="modal-content">
                     <h4>Thanks for signing in! 😍</h4>
-                </div>
-            </div> --}}
-
-            <div id="modalbuttonclick" class="modal modal-close">
-                <div class="modal-content">
-                    <h4>YOOO, texter! Plzzz sign up or sign in and then click this page again. Kthxbye! 😜</h4>
                 </div>
             </div>
 
