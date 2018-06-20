@@ -1,0 +1,207 @@
+<nav>
+    <div class="nav-wrapper">
+        <a href="index.html" class="brandtitle brand-logo">
+            <img class="logo" src="assets/img/logo.png">
+        </a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+            <i class="material-icons">menu</i>
+        </a>
+        <ul class="left hide-on-med-and-down">
+            <li>
+                <a href="#">
+                    <img class="ewemoji" src="../public/assets/img/emojis/ewemoji.png">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img class="bffsemoji" src="assets/img/emojis/bffs.png">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img class="lolemoji" src="assets/img/emojis/lolemoji.png">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img class="nsfwemoji" src="assets/img/emojis/nsfwemoji.png">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img class="failemoji" src="assets/img/emojis/failemoji.png">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img class="wtfemoji" src="assets/img/emojis/wtfemoji.png">
+                </a>
+            </li>
+        </ul>
+        <ul class="right hide-on-med-and-down">
+            <li>
+                <a href="#">
+                    <img class="fameemoji" src="assets/img/emojis/fameemoji2.png">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img class="shameemoji" src="assets/img/emojis/shameemoji2.png">
+                    </i>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img class="door" src="assets/img/emojis/door.png">
+                    </i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+    <li>
+        <a href="#">EW</a>
+    </li>
+    <li>
+        <a href="#">BFF</a>
+    </li>
+    <li>
+        <a href="#">LOL</a>
+    </li>
+    <li>
+        <a href="#">NSFW</a>
+    </li>
+    <li>
+        <a href="#">FAIL</a>
+    </li>
+    <li>
+        <a href="#">WTFam</a>
+    </li>
+    <li>
+        <a href="#">Hall Of Fame</a>
+    </li>
+    <li>
+        <a href="#">Hall Of Shame</i>
+        </a>
+    </li>
+    <li>
+        <a href="#">Sign Out</i>
+        </a>
+    </li>
+</ul>
+
+<div class="wrapper">
+    <div class="row">
+        <form id="updatetextform">
+            {{!-- method="put" enctype='multipart/form-data' action="/api/text/bla" --}}
+            <div class="col s4 col m4 textcaption left">
+                <textarea id='caption' type="text" class="form-control" placeholder="Type your caption here" rows="3" cols="10"></textarea>
+            </div>
+
+            <div class="col col s8 col m8 textupload right">Text screenshot goes here</div>
+
+            <div class="col s4 col m4 textcategoriesdiv left">Check the categories that best fit your text:
+                <div class="form-check textcategories">
+                    <p>
+                        <label>
+                            <input type="checkbox" class="ewcategory checkBoxCat" name='category' id="ew" />
+                            <span class="categorytext">EW</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" class="bffcategory checkBoxCat" name='category' id="bff" />
+                            <span class="categorytext">BFF</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" class="lolcategory checkBoxCat" name='category' id="lol" />
+                            <span class="categorytext">LOL</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" class="nsfwcategory checkBoxCat" name='category' id="nsfw" />
+                            <span class="categorytext">NSFW</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" class="failcategory checkBoxCat" name='category' id="fail" />
+                            <span class="categorytext">FAIL</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" class="wtfamcategory checkBoxCat" name='category' id="wtfam" />
+                            <span class="categorytext">WTFam</span>
+                        </label>
+                    </p>
+                </div>
+            </div>
+
+            <button class="btn btn-primary textuploadsubmit light-blue modal-trigger" type="submit" data-target="modalsubmit">Submit</button>
+
+            <div id="modalsubmit" class="modal modal-close">
+                <div class="modal-content">
+                    <h4>Thx for submitting ur text!</h4>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript" src="assets/javascript/materialize.min.js"></script>
+<script type="text/javascript" src="assets/javascript/materializejs.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+        var textId = window.location.pathname.split("/").pop()
+        $.get('/api/text/' + textId)
+            .then(function (response) {
+                console.log("response.id on page load: " + response.id)
+                var imageElem = $('<img src="' + response.image + '">')
+                $('.textupload').html(imageElem);
+            });
+
+        $("#updatetextform").on("submit", function (event) {
+            event.preventDefault();
+
+            test();
+
+            if ($('#ew').prop('checked')) { var ewV = 1 } else { var ewV = 0 };
+            if ($('#bff').prop('checked')) { var bffV = 1 } else { var bffV = 0 };
+            if ($('#lol').prop('checked')) { var lolV = 1 } else { var lolV = 0 };
+            if ($('#nsfw').prop('checked')) { var nsfwV = 1 } else { var nsfwV = 0 };
+            if ($('#fail').prop('checked')) { var failV = 1 } else { var failV = 0 };
+            if ($('#wtfam').prop('checked')) { var wtfamV = 1 } else { var wtfamV = 0 };
+
+            var textId = window.location.pathname.split("/").pop();
+            console.log('textId: ' + textId);
+
+            var updatedText = {
+                caption: $("#caption").val(),
+                ew: ewV,
+                bff: bffV,
+                lol: lolV,
+                nsfw: nsfwV,
+                fail: failV,
+                wtfam: wtfamV,
+            }
+
+            console.log(updatedText);
+            $.ajax('/api/text/' + textId, {
+                type: "PUT",
+                data: updatedText
+            })
+                .then(console.log('test'));
+
+        });
+
+        function test() {
+            $('.modal').modal({
+                onOpenEnd: function () {
+                    setTimeout(function () {
+                        window.location.href = '/userhome';
+                    }, 1000);
+                }
+            });
+        }
+
+    });
+</script>

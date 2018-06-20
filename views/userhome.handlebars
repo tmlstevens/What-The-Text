@@ -1,0 +1,232 @@
+<nav>
+    <div class="nav-wrapper">
+        <a href="/" class="brandtitle brand-logo">
+            <img class="logo" src="assets/img/logo.png">
+        </a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+            <i class="material-icons">menu</i>
+        </a>
+        <ul class="left hide-on-med-and-down">
+            <li>
+                <img class="ewemoji onuserhome" src="assets/img/emojis/ewemoji.png">
+            </li>
+            <li>
+                <img class="bffsemoji onuserhome" src="assets/img/emojis/bffs.png">
+            </li>
+            <li>
+                <img class="lolemoji onuserhome" src="assets/img/emojis/lolemoji.png">
+            </li>
+            <li>
+                <img class="nsfwemoji onuserhome" src="assets/img/emojis/nsfwemoji.png">
+            </li>
+            <li>
+                <img class="failemoji onuserhome" src="assets/img/emojis/failemoji.png">
+            </li>
+            <li>
+                <img class="wtfemoji onuserhome" src="assets/img/emojis/wtfemoji.png">
+            </li>
+        </ul>
+        <ul class="right hide-on-med-and-down">
+            <li>
+                <a href="/halloffame">
+                    <img class="fameemoji" src="assets/img/emojis/fameemoji2.png">
+                </a>
+            </li>
+            <li>
+                <a href="/hallofshame">
+                    <img class="shameemoji" src="assets/img/emojis/shameemoji2.png">
+                    </i>
+                </a>
+            </li>
+            <li>
+                <a href="/logout">
+                    <img class="door modal-trigger" data-target="modalsignout" src="assets/img/emojis/door.png">
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+    <li>
+        <img class="ewemoji">EW
+    </li>
+    <li>
+        <img class="bffemoji">BFF
+    </li>
+    <li>
+        <img class="lolemoji">LOL
+    </li>
+    <li>
+        <img class="nsfwemoji">NSFW
+    </li>
+    <li>
+        <img class="failemoji">FAIL
+    </li>
+    <li>
+        <img class="wtfamemoji">WTFam
+    </li>
+    <li>
+        <a href="/halloffame">Hall Of Fame</a>
+    </li>
+    <li>
+        <a href="/hallofshame">Hall Of Shame</i>
+        </a>
+    </li>
+    <li>
+        <a class="modal-trigger" data-target="modalsignout" href="#modalsignout">Sign Out</i>
+        </a>
+    </li>
+</ul>
+
+<div class="wrapper">
+    <div class="row">
+        <div class="col s12 m12 l6 xl6">
+            <img class="textfeedlogo" src="assets/img/textfeed.png" alt="text feed logo">
+        </div>
+        <div class="col s11 push-s2 m7 pull-m2 l6 right pull-l1 uploadfile card">
+            <div class="card-content black-text">
+                <div id="drop-area">
+                    <form method='post' class="my-form" enctype='multipart/form-data' action='/upload'>
+                        <p>Upload your screenshots using the button below, or by dragging and dropping (PNG only!) </p>
+                        <input type="file" name='file' id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
+                        <label class="button btn-floating btn-large light-blue lighten-2 waves-effect waves-green waves-ripple addtext" for="fileElem">
+                            <i class="material-icons">add</i>
+                        </label>
+                        <button class="btn waves-effect waves-light light-blue lighten-2 waves-green waves-ripple" type="submit" name="action">Submit
+                            <i class="material-icons right">file_upload</i>
+                        </button>
+                    </form>
+                    <progress id="progress-bar" max=100 value=0></progress>
+                    <div id="gallery"></div>
+                </div>
+            </div>
+        </div>
+
+        {{!--
+        <div class="col s12 m1 l1 showmebox left">
+            Show me:
+            <p>
+                <label>
+                    <input name="filterchoices" type="radio" class="with-gap" checked>
+                    <span class="showmeboxsmall">Everyone's Activity</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input name="filterchoices" type="radio" class="with-gap">
+                    <span>My Activity</span>
+                </label>
+            </p>
+        </div> --}}
+    </div>
+
+
+    <hr>
+    <div class="col s6 col m12 everyonestexts">
+        <h5 class="closerlook">Click each text for a closer look, and to leave a comment!</h5>
+        <div class="everyonestextsdiv"></div>
+    </div>
+    <!-- <div class="col-xs-6 col-sm-6 col-md-6 mytexts">
+                <h2>My Activity</h2>
+                <div class="mytextsdiv"></div>
+            </div> -->
+
+    <div id="modalsignout" class="modal modal-close">
+        <div class="modal-content">
+            <h4>Bye, foo-licia! 👋</h4>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript" src="assets/javascript/uploadfile.js"></script>
+<script type="text/javascript" src="assets/javascript/materialize.min.js"></script>
+<script type="text/javascript" src="assets/javascript/materializejs.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $.get('/api/userhome')
+            .then((response) => {
+                for (var i = 0; i < response.length; i++) {
+                    var imageElem = $('<a data-textId=' + response[i].id + ' href="/textfocus/' + response[i].id + '"><img class="whatthetextimg" src="' + response[i].image + '"></a>' + '<br>');
+                    $('.everyonestextsdiv').prepend(imageElem);
+                }
+            });
+        $('.lolemoji').on('click', function (request, response) {
+            $.get('/api/lol')
+                .then((response) => {
+                    $('.everyonestextsdiv').empty();
+                    for (var i = 0; i < response.length; i++) {
+                        var lolElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
+                        $('.everyonestextsdiv').prepend(lolElem);
+                    }
+                });
+        });
+        $('.ewemoji').on('click', function (request, response) {
+            $.get('/api/ew')
+                .then((response) => {
+                    $('.everyonestextsdiv').empty();
+                    for (var i = 0; i < response.length; i++) {
+                        var ewElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
+                        $('.everyonestextsdiv').prepend(ewElem);
+                    }
+                });
+        });
+
+        $('.bffemoji').on('click', function (request, response) {
+            $.get('/api/bff')
+                .then((response) => {
+                    $('.everyonestextsdiv').empty();
+                    for (var i = 0; i < response.length; i++) {
+                        var bffElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
+                        $('.everyonestextsdiv').prepend(bffElem);
+                    }
+                });
+        });
+
+        $('.lolemoji').on('click', function (request, response) {
+            $.get('/api/lol')
+                .then((response) => {
+                    $('.everyonestextsdiv').empty();
+                    for (var i = 0; i < response.length; i++) {
+                        var lolElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
+                        $('.everyonestextsdiv').prepend(lolElem);
+                    }
+                });
+        });
+
+        $('.nsfwemoji').on('click', function (request, response) {
+            $.get('/api/nsfw')
+                .then((response) => {
+                    $('.everyonestextsdiv').empty();
+                    for (var i = 0; i < response.length; i++) {
+                        var nsfwElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
+                        $('.everyonestextsdiv').prepend(nsfwElem);
+                    }
+                });
+        });
+
+        $('.failemoji').on('click', function (request, response) {
+            $.get('/api/fail')
+                .then((response) => {
+                    $('.everyonestextsdiv').empty();
+                    for (var i = 0; i < response.length; i++) {
+                        var failElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
+                        $('.everyonestextsdiv').prepend(failElem);
+                    }
+                });
+        });
+
+        $('.wtfamemoji').on('click', function (request, response) {
+            $.get('/api/wtfam')
+                .then((response) => {
+                    $('.everyonestextsdiv').empty();
+                    for (var i = 0; i < response.length; i++) {
+                        var wtfamElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
+                        $('.everyonestextsdiv').prepend(wtfamElem);
+                    }
+                });
+        });
+    });
+</script>
