@@ -138,16 +138,12 @@ var router = function (app) {
             });
     });
 
-
     app.get('/textfocus/:id', function (request, response) {
         response.render('comment')
-        .then(function (result) {
-        response.redirect('/comments');
-    })
-});
+    });
 
     app.get('/text/:id', function (request, response) {
-        response.render('submit');
+        response.render('submit')
     });
 
     app.get('/text/comments/:id', function (request, response) {
