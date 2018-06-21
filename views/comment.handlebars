@@ -162,11 +162,12 @@
                 </div>
             </form>
 
+            {{!--
             <div id="modalcomment" class="modal modal-close">
                 <div class="modal-content">
                     <h4>Thx for ur epic comment! 😄</h4>
                 </div>
-            </div>
+            </div> --}}
 
             <div id="modalsignout" class="modal modal-close">
                 <div class="modal-content">
@@ -176,7 +177,8 @@
 
         </div>
 
-        {{!-- <script type="text/javascript" src="assets/javascript/materializejs.js"></script> --}}
+        {{!--
+        <script type="text/javascript" src="assets/javascript/materializejs.js"></script> --}}
 
         <script>
             $(document).ready(function () {
@@ -195,11 +197,11 @@
 
                             $('.comments').prepend(response.Comments[i].comment + '<br><br>' + response.Comments[i].createdAt + '<br><br>');
 
-                           // var date = response.Text[i].dataValues.createdAt;
-                           // $('.datepost').append(date);
+                            // var date = response.Text[i].dataValues.createdAt;
+                            // $('.datepost').append(date);
                         }
                         //console.log("text:" + response.Text.dataValues.id);
-                            
+
 
                         var imageElem = $('<img class="commentdiv" src="' + response.image + '">')
                         $('.specifictext').html(imageElem);
@@ -226,18 +228,9 @@
                                     console.log("Comment response:" + response)
                                 });
                         })
+                    window.location.href = '/userhome';
+
                 })
-
-
-                function test() {
-                    $('.modal').modal({
-                        onOpenEnd: function () {
-                            setTimeout(function () {
-                                window.location.href = '/userhome';
-                            }, 1000);
-                        }
-                    });
-                }
 
             })
         </script>
