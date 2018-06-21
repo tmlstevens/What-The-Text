@@ -150,7 +150,7 @@
         $("#updatetextform").on("submit", function (event) {
             event.preventDefault();
 
-            test();
+           // test();
 
             if ($('#ew').prop('checked')) { var ewV = 1 } else { var ewV = 0 };
             if ($('#bff').prop('checked')) { var bffV = 1 } else { var bffV = 0 };
@@ -181,15 +181,15 @@
 
         });
 
-        function test() {
-            $('.modal').modal({
-                onOpenEnd: function () {
-                    setTimeout(function () {
-                        window.location.href = '/userhome';
-                    }, 1000);
-                }
-            });
-        }
+       // function test() {
+         //   $('.modal').modal({
+           //     onOpenEnd: function () {
+           //         setTimeout(function () {
+            //            window.location.href = '/userhome';
+             //       }, 1000);
+           //     }
+         //   });
+     //   }
 
         $.get('/api/userhome')
             .then((response) => {
