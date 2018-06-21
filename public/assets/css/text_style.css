@@ -299,7 +299,10 @@ a:hover {
 
 .textupload {
     background-color: rgb(240, 240, 240);
-    height: 600px;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
     box-shadow: 0 4px 8px 0 rgba(96, 114, 86, 0.2), 0 10px 20px 0 rgba(49, 173, 255, 0.19);
 }
 
