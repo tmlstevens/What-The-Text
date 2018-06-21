@@ -157,6 +157,7 @@ var router = function (app) {
             })
             .then(function (result) {
                 response.json(result);
+                response.redirect('/comments');
             })
     });
 
