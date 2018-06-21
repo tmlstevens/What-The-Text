@@ -1,89 +1,6 @@
-<nav>
-    <div class="nav-wrapper">
-        <a href="/" class="brandtitle brand-logo">
-            <img class="logo" src="assets/img/logo.png">
-        </a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger">
-            <i class="material-icons">menu</i>
-        </a>
-        <ul class="left hide-on-med-and-down">
-            <li>
-                <img class="ewemoji onuserhome" src="/../public/assets/img/emojis/ewemoji.png">
-            </li>
-            <li>
-                <img class="bffemoji onuserhome" src="assets/img/emojis/bffs.png">
-            </li>
-            <li>
-                <img class="lolemoji onuserhome" src="assets/img/emojis/lolemoji.png">
-            </li>
-            <li>
-                <img class="nsfwemoji onuserhome" src="assets/img/emojis/nsfwemoji.png">
-            </li>
-            <li>
-                <img class="failemoji onuserhome" src="assets/img/emojis/failemoji.png">
-            </li>
-            <li>
-                <img class="wtfamemoji onuserhome" src="assets/img/emojis/wtfemoji.png">
-            </li>
-        </ul>
-        <ul class="right hide-on-med-and-down">
-            <li>
-                <a href="/halloffame">
-                    <img class="fameemoji onuserhome" src="assets/img/emojis/fameemoji2.png">
-                </a>
-            </li>
-            <li>
-                <a href="/hallofshame">
-                    <img class="shameemoji onuserhome" src="assets/img/emojis/shameemoji2.png">
-                </a>
-                </a>
-            </li>
-            <li>
-                <a href="/logout">
-                    <img class="door modal-trigger onuserhome" data-target="modalsignout" src="assets/img/emojis/door.png">
-                </a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
-<ul class="sidenav" id="mobile-demo">
-    <li>
-        <a class="ewemoji">EW</a>
-    </li>
-    <li>
-        <a class="bffemoji">BFF</a>
-    </li>
-    <li>
-        <a class="lolemoji">LOL</a>
-    </li>
-    <li>
-        <a class="nsfwemoji">NSFW</a>
-    </li>
-    <li>
-        <a class="failemoji">FAIL</a>
-    </li>
-    <li>
-        <a class="wtfamemoji">WTFam</a>
-    </li>
-    <li>
-        <a href="/halloffame">Hall Of Fame</i>
-        </a>
-    </li>
-    <li>
-        <a href="/hallofshame">Hall Of Shame</i>
-        </a>
-    </li>
-    <li>
-        <a class="modal-trigger" data-target="modalsignout" href="#modalsignout">Sign Out</i>
-        </a>
-    </li>
-</ul>
-
 <div class="wrapper">
     <div class="row">
         <form id="updatetextform">
-            {{!-- method="put" enctype='multipart/form-data' action="/api/text/bla" --}}
             <div class="col s4 col m4 textcaption left">
                 <textarea id='caption' type="text" class="form-control" placeholder="Type your caption here" rows="3" cols="10"></textarea>
             </div>
@@ -133,18 +50,19 @@
     </div>
 </div>
 
-<script type="text/javascript" src="assets/javascript/materialize.min.js"></script>
-<script type="text/javascript" src="assets/javascript/materializejs.js"></script>
+<script src="assets/javascript/materialize.min.js"></script>
+<script src="assets/javascript/materializejs.js"></script>
 
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
 
         var textId = window.location.pathname.split("/").pop()
-        $.get('/api/text/' + textId)
+        $.get('/api/texter/' + textId)
             .then(function (response) {
-                console.log("response.id on page load: " + response.id)
+                console.log("response.id on page load: " + response.id);
                 var imageElem = $('<img src="' + response.image + '">')
                 $('.textupload').html(imageElem);
+                console.log("response.id on page load: " + response.image);
             });
 
         $("#updatetextform").on("submit", function (event) {
@@ -173,7 +91,7 @@
             }
 
             console.log(updatedText);
-            $.ajax('/api/text/' + textId, {
+            $.ajax('/api/texty/' + textId, {
                 type: "PUT",
                 data: updatedText
             })
