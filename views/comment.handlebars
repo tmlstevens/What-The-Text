@@ -157,17 +157,16 @@
             <form id="commentform">
                 <div class="captiononlydiv">
                     <textarea id='commentTxtArea' type="text" class="form-control" placeholder="Say something about it..." rows="3" cols="10"></textarea>
-                    <button class="btn waves-effect waves-light light-blue lighten-2 waves-green waves-ripple commentbutton"
+                    <button class="btn waves-effect waves-light light-blue lighten-2 waves-green waves-ripple commentbutton modal-trigger" data-target="modalcomment"
                         type="submit">Comment</button>
                 </div>
             </form>
 
-            {{!--
             <div id="modalcomment" class="modal modal-close">
                 <div class="modal-content">
                     <h4>Thx for ur epic comment! 😄</h4>
                 </div>
-            </div> --}}
+            </div>
 
             <div id="modalsignout" class="modal modal-close">
                 <div class="modal-content">
@@ -177,8 +176,7 @@
 
         </div>
 
-        {{!--
-        <script type="text/javascript" src="assets/javascript/materializejs.js"></script> --}}
+        {{!-- <script type="text/javascript" src="assets/javascript/materializejs.js"></script> --}}
 
         <script>
             $(document).ready(function () {
@@ -197,11 +195,11 @@
 
                             $('.comments').prepend(response.Comments[i].comment + '<br><br>' + response.Comments[i].createdAt + '<br><br>');
 
-                            // var date = response.Text[i].dataValues.createdAt;
-                            // $('.datepost').append(date);
+                           // var date = response.Text[i].dataValues.createdAt;
+                           // $('.datepost').append(date);
                         }
                         //console.log("text:" + response.Text.dataValues.id);
-
+                            
 
                         var imageElem = $('<img class="commentdiv" src="' + response.image + '">')
                         $('.specifictext').html(imageElem);
@@ -209,8 +207,7 @@
                 $("#commentform").on("submit", function (event) {
                     event.preventDefault();
 
-                    window.location.href = '/userhome';
-
+                    test();
 
                     var comment = {
                         comment: $('#commentTxtArea').val(),
@@ -229,8 +226,18 @@
                                     console.log("Comment response:" + response)
                                 });
                         })
-
                 })
+
+
+                function test() {
+                    $('.modal').modal({
+                        onOpenEnd: function () {
+                            setTimeout(function () {
+                                window.location.href = '/userhome';
+                            }, 1000);
+                        }
+                    });
+                }
 
             })
         </script>
