@@ -117,8 +117,8 @@
         $('.lolemoji').on('click', function (request, response) {
             $.get('/api/lol')
                 .then((response) => {
-                    window.location = "/userhome";
                     $('.everyonestextsdiv').empty();
+                    window.location = "/userhome";
                     for (var i = 0; i < response.length; i++) {
                         var lolElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
                         $('.everyonestextsdiv').prepend(lolElem);
