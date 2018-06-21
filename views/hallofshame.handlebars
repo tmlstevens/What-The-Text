@@ -126,6 +126,7 @@
                 });
         });
         $('.ewemoji').on('click', function (request, response) {
+            window.location = "/userhome";
             $.get('/api/ew')
                 .then((response) => {
                     $('.everyonestextsdiv').empty();
@@ -137,6 +138,7 @@
         });
 
         $('.bffemoji').on('click', function (request, response) {
+            window.location = "/userhome";
             $.get('/api/bff')
                 .then((response) => {
                     $('.everyonestextsdiv').empty();
@@ -148,6 +150,7 @@
         });
 
         $('.nsfwemoji').on('click', function (request, response) {
+            window.location = "/userhome";
             $.get('/api/nsfw')
                 .then((response) => {
                     $('.everyonestextsdiv').empty();
@@ -159,6 +162,7 @@
         });
 
         $('.failemoji').on('click', function (request, response) {
+            window.location = "/userhome";
             $.get('/api/fail')
                 .then((response) => {
                     $('.everyonestextsdiv').empty();
@@ -170,6 +174,7 @@
         });
 
         $('.wtfamemoji').on('click', function (request, response) {
+            window.location = "/userhome";
             $.get('/api/wtfam')
                 .then((response) => {
                     $('.everyonestextsdiv').empty();
