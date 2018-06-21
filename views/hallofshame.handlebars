@@ -1,20 +1,3 @@
-<head>
-    <script>
-$(document).ready(function () {
-        $('.lolemoji').on('click', function (request, response) {
-            $.get('/api/lol')
-                .then((response) => {
-                    window.location = "/userhome";
-                    $('.everyonestextsdiv').empty();
-                    for (var i = 0; i < response.length; i++) {
-                        var lolElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
-                        $('.everyonestextsdiv').prepend(lolElem);
-                    }
-                });
-        });
-});
-</script>
-</head>
 <nav>
     <div class="nav-wrapper">
         <a href="/" class="brandtitle brand-logo">
@@ -131,7 +114,8 @@ $(document).ready(function () {
 
 <script>
     $(document).ready(function () {
-        {{!-- $('.lolemoji').on('click', function (request, response) {
+        $('.lolemoji').on('click', function (request, response) {
+            window.location = "/userhome";
             $.get('/api/lol')
                 .then((response) => {
                     $('.everyonestextsdiv').empty();
@@ -140,7 +124,7 @@ $(document).ready(function () {
                         $('.everyonestextsdiv').prepend(lolElem);
                     }
                 });
-        }); --}}
+        });
         $('.ewemoji').on('click', function (request, response) {
             $.get('/api/ew')
                 .then((response) => {
