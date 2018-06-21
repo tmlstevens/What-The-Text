@@ -157,7 +157,7 @@
             <form id="commentform">
                 <div class="captiononlydiv">
                     <textarea id='commentTxtArea' type="text" class="form-control" placeholder="Say something about it..." rows="3" cols="10"></textarea>
-                    <button class="btn waves-effect waves-light light-blue lighten-2 waves-green waves-ripple commentbutton modal-trigger" data-target="modalcomment"
+                    <button class="btn waves-effect waves-light light-blue lighten-2 waves-green waves-ripple commentbutton" 
                         type="submit">Comment</button>
                 </div>
             </form>
@@ -209,8 +209,6 @@
                 $("#commentform").on("submit", function (event) {
                     event.preventDefault();
 
-                    test();
-
                     var comment = {
                         comment: $('#commentTxtArea').val(),
                         userId: 20,
@@ -227,9 +225,9 @@
                                 .then(function (response) {
                                     console.log("Comment response:" + response)
                                 });
-                        })
-                    window.location.href = '/userhome';
+                            window.location.href = '/userhome';
 
+                        })
                 })
 
             })
