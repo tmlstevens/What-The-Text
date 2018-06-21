@@ -13,8 +13,9 @@
             <li>
                 <img class="bffemoji onuserhome" src="assets/img/emojis/bffs.png">
             </li>
-            <li>
+            <li><a href="/userhome">
                 <img class="lolemoji onuserhome" src="assets/img/emojis/lolemoji.png">
+                </a>
             </li>
             <li>
                 <img class="nsfwemoji onuserhome" src="assets/img/emojis/nsfwemoji.png">
@@ -118,7 +119,6 @@
             $.get('/api/lol')
                 .then((response) => {
                     $('.everyonestextsdiv').empty();
-                    window.location = "/userhome";
                     for (var i = 0; i < response.length; i++) {
                         var lolElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
                         $('.everyonestextsdiv').prepend(lolElem);
