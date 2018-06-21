@@ -140,9 +140,11 @@ var router = function (app) {
 
 
     app.get('/textfocus/:id', function (request, response) {
-        response.render('comment');
+        response.render('comment')
+        .then(function (result) {
         response.redirect('/comments');
-    });
+    })
+});
 
     app.get('/text/:id', function (request, response) {
         response.render('submit');
