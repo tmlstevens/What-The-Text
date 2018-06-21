@@ -6,7 +6,6 @@
         js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0&appId=388344565010558&autoLogAppEvents=1';
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-
     window.twttr = (function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0],
             t = window.twttr || {};
@@ -15,15 +14,12 @@
         js.id = id;
         js.src = "https://platform.twitter.com/widgets.js";
         fjs.parentNode.insertBefore(js, fjs);
-
         t._e = [];
         t.ready = function (f) {
             t._e.push(f);
         };
-
         return t;
     }(document, "script", "twitter-wjs"));
-
 </script>
 
 <nav>
@@ -180,7 +176,6 @@
 
         <script>
             $(document).ready(function () {
-
                 var textId = window.location.pathname.split("/").pop()
                 $.get('/api/textfocusget/' + textId)
                     .then(function (response) {
@@ -192,23 +187,18 @@
                             //var br = $("<br>");
                             //var hr = $('<hr>');
                             //var commentdate = response.Comments[i].createdAt;
-
                             $('.comments').prepend(response.Comments[i].comment + '<br><br>' + response.Comments[i].createdAt + '<br><br>');
-
                            // var date = response.Text[i].dataValues.createdAt;
                            // $('.datepost').append(date);
                         }
                         //console.log("text:" + response.Text.dataValues.id);
                             
-
                         var imageElem = $('<img class="commentdiv" src="' + response.image + '">')
                         $('.specifictext').html(imageElem);
                     });
                 $("#commentform").on("submit", function (event) {
                     event.preventDefault();
-
                     test();
-
                     var comment = {
                         comment: $('#commentTxtArea').val(),
                         userId: 20,
@@ -227,8 +217,6 @@
                                 });
                         })
                 })
-
-
                 function test() {
                     $('.modal').modal({
                         onOpenEnd: function () {
@@ -238,6 +226,5 @@
                         }
                     });
                 }
-
             })
         </script>
