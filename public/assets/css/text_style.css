@@ -63,6 +63,10 @@ nav .brand-logo {
     font-size: 1.6rem; 
 }
 
+.brandtitle {
+    margin-left: 5px;
+}
+
 .ewemoji, .lolemoji, .nsfwemoji, .failemoji {
     height: 60px;
     width: 65px;
@@ -99,9 +103,9 @@ nav .brand-logo {
     margin-right: 20px;
 }
 
-/* .door.onuserhome {
-    margin-right: -5px;
-} */
+.door.onuserhome {
+    margin-right: 5px;
+}
 
 /* 
 .fameemoji.onuserhome {
