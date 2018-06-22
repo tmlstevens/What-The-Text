@@ -115,6 +115,7 @@ nav .brand-logo {
 .comments {
     margin: 10px;
     display: block;
+    font-weight: bold;
 }
 
 .date {
