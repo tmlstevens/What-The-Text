@@ -28,20 +28,14 @@
         </ul>
         <ul class="right hide-on-med-and-down">
             <li>
-                <a href="/halloffame">
-                    <img class="fameemoji onuserhome" src="assets/img/emojis/fameemoji2.png">
-                </a>
+                <img class="fameemoji fametarget onuserhome" src="assets/img/emojis/fameemoji2.png">
             </li>
             <li>
-                <a href="/hallofshame">
-                    <img class="shameemoji onuserhome" src="assets/img/emojis/shameemoji2.png">
-                </a>
-                </a>
+                <img class="shameemoji shametarget onuserhome" src="assets/img/emojis/shameemoji2.png">
+
             </li>
             <li>
-                <a href="/logout">
-                    <img class="door modal-trigger onuserhome" data-target="modalsignout" src="assets/img/emojis/door.png">
-                </a>
+                <img class="door logouttarget modal-trigger onuserhome" data-target="modalsignout" src="assets/img/emojis/door.png">
             </li>
         </ul>
     </div>
@@ -67,15 +61,15 @@
         <a class="wtfamemoji">WTFam</a>
     </li>
     <li>
-        <a href="/halloffame">Hall Of Fame</i>
+        <a class="fametarget">Hall Of Fame</i>
         </a>
     </li>
     <li>
-        <a href="/hallofshame">Hall Of Shame</i>
+        <a class="shametarget">Hall Of Shame</i>
         </a>
     </li>
     <li>
-        <a class="modal-trigger" data-target="modalsignout" href="#modalsignout">Sign Out</i>
+        <a class="logouttarget">Sign Out</i>
         </a>
     </li>
 </ul>
@@ -109,11 +103,22 @@
 </div>
 
 </div>
-<script type="text/javascript" src="assets/javascript/uploadfile.js"></script>
-<script type="text/javascript" src="assets/javascript/materialize.min.js"></script>
-<script type="text/javascript" src="assets/javascript/materializejs.js"></script>
 <script>
     $(document).ready(function () {
+
+        $('.fametarget').on('click', function (request, response) {
+            window.location = "/halloffame";
+
+        });
+        $('.shametarget').on('click', function (request, response) {
+            window.location = "/hallofshame";
+
+        });
+        $('.logouttarget').on('click', function (request, response) {
+            window.location = "/logout";
+
+        });
+
         $('.lolemoji').on('click', function (request, response) {
             window.location = "/userhome";
             $.get('/api/lol')

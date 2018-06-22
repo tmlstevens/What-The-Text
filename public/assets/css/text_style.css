@@ -14,9 +14,15 @@ body {
     padding-top: 20px;
 }
 
+nav ul li a img:hover {
+    opacity:1.0;
+    background-color:none!important;
+}
+
 nav ul li:hover {
     background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
-    padding-left: 15px;
+    padding-left: 20px;
+    margin-right: 5px;
 }
 
 .left {
@@ -41,7 +47,6 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     margin-left: auto;
 	margin-right: auto;
     display: block;
-    /* position: relative; */
 }
 
 .everyonestexts, .everyonestextsdiv {
@@ -58,22 +63,12 @@ nav .brand-logo {
     font-size: 1.6rem; 
 }
 
-.onuserhome {
-    margin-right: 30px;
-}
-
-@media only screen and (min-width: 601px){
-    nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
-        height: 80px;
-        line-height: 30px;
-    }
-}
-
 .ewemoji, .lolemoji, .nsfwemoji, .failemoji {
     height: 60px;
     width: 65px;
     margin-top: 10px;
     margin-left: -5px;
+    margin-right: 30px;
 }
 
 .bffemoji, .bffsemoji {
@@ -81,25 +76,38 @@ nav .brand-logo {
     width: 64px;
     margin-top: 10px;
     margin-left: -5px;
+    margin-right: 30px;
 }
 
 .yaasemoji, nopeemoji {
     height: 65px;
     width: 90px;
+    margin-right: 30px;
 }
 
 .wtfamemoji, .wtfemoji {
     height: 60px;
     width: 80px;
-    margin-top: 10px; 
+    margin-top: 10px;
+    margin-right: 30px; 
 }
 
 .fameemoji {
     width: 63px;
     height: 64px;
     margin-top: 8px;
-    margin-right: -12px;
+    margin-right: 20px;
 }
+
+/* .door.onuserhome {
+    margin-right: -5px;
+} */
+
+/* 
+.fameemoji.onuserhome {
+    margin-right: -10px;
+} */
+
 .comments {
     margin: 10px;
     display: block;
@@ -110,12 +118,11 @@ nav .brand-logo {
     display: block;
 }
 
-
 .shameemoji {
     width: 73px;
     height: 64px;
     margin-top: 8px;
-    margin-left: 30px;
+    margin-right: 20px;
 }
 
 .door {
@@ -454,6 +461,13 @@ p {
 
 .hoslong, .hoflong {
     width: 60%;
+}
+
+@media only screen and (min-width: 601px){
+    nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+        height: 80px;
+        line-height: 30px;
+    }
 }
 
 @media (min-width:1170px) {
