@@ -94,6 +94,14 @@ var router = (app) => {
         })
     });
 
+    app.get('/halloffame', function (request, response) {
+        response.render('halloffame')
+    })
+
+    app.get('/hallofshame', function (request, response) {
+        response.render('hallofshame')
+    })
+
 ///////////////////////////////////////////////////////////////////////
 
 ////////  ROUTES USED ON COMMENT.HANDLEBARS  ///////////////////////////
