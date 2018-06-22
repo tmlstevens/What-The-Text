@@ -146,12 +146,12 @@
             <form id="commentform">
                 <div class="captiononlydiv">
                     <textarea id='commentTxtArea' type="text" class="form-control" placeholder="Say something about it..." rows="3" cols="10"></textarea>
-                    <button class="btn waves-effect waves-light light-blue lighten-2 waves-green waves-ripple commentbutton"
-                        type="submit">Comment</button>
+                    <button class="btn waves-effect waves-light light-blue lighten-2 waves-green waves-ripple commentbutton" type="submit">Comment</button>
                 </div>
             </form>
 
-            {{!-- <div id="modalsignout" class="modal modal-close">
+            {{!--
+            <div id="modalsignout" class="modal modal-close">
                 <div class="modal-content">
                     <h4>Bye, foo-licia! 👋</h4>
                 </div>
@@ -218,6 +218,7 @@
                         }
                     });
                 $('.lolemoji').on('click', function (request, response) {
+                    window.location = "/userhome";
                     $.get('/api/lol')
                         .then((response) => {
                             $('.everyonestextsdiv').empty();
@@ -228,6 +229,7 @@
                         });
                 });
                 $('.ewemoji').on('click', function (request, response) {
+                    window.location = "/userhome";
                     $.get('/api/ew')
                         .then((response) => {
                             $('.everyonestextsdiv').empty();
@@ -239,6 +241,7 @@
                 });
 
                 $('.bffemoji').on('click', function (request, response) {
+                    window.location = "/userhome";
                     $.get('/api/bff')
                         .then((response) => {
                             $('.everyonestextsdiv').empty();
@@ -250,6 +253,7 @@
                 });
 
                 $('.lolemoji').on('click', function (request, response) {
+                    window.location = "/userhome";
                     $.get('/api/lol')
                         .then((response) => {
                             $('.everyonestextsdiv').empty();
@@ -261,6 +265,7 @@
                 });
 
                 $('.nsfwemoji').on('click', function (request, response) {
+                    window.location = "/userhome";
                     $.get('/api/nsfw')
                         .then((response) => {
                             $('.everyonestextsdiv').empty();
@@ -272,6 +277,7 @@
                 });
 
                 $('.failemoji').on('click', function (request, response) {
+                    window.location = "/userhome";
                     $.get('/api/fail')
                         .then((response) => {
                             $('.everyonestextsdiv').empty();
@@ -283,6 +289,7 @@
                 });
 
                 $('.wtfamemoji').on('click', function (request, response) {
+                    window.location = "/userhome";
                     $.get('/api/wtfam')
                         .then((response) => {
                             $('.everyonestextsdiv').empty();
