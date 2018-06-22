@@ -8,7 +8,10 @@
 # PROJECT DESCRIPTION:
 * What The Text?! is an online community where users can come together and share their funniest, craziest, or most 'What The Text?!'-worthy conversations.
 
-# SKETCH:
+# SITE IMAGES:
+
+
+# SKETCHES:
 ![comment on](https://user-images.githubusercontent.com/34491285/41195780-9445b2b0-6bf9-11e8-804e-638d3e0d0770.png)
 ![landing_login 1](https://user-images.githubusercontent.com/34491285/41195781-94525330-6bf9-11e8-890c-a8e07652d715.png)
 ![upload](https://user-images.githubusercontent.com/34491285/41195782-945e9f28-6bf9-11e8-97bc-0f7b2654e689.png)
