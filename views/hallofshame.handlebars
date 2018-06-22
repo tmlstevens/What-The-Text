@@ -8,22 +8,22 @@
         </a>
         <ul class="left hide-on-med-and-down">
             <li>
-                <img class="ewemoji onuserhome" src="assets/img/emojis/ewemoji.png">
+                <img class="ewemoji ewtarget onuserhome" src="assets/img/emojis/ewemoji.png">
             </li>
             <li>
-                <img class="bffemoji onuserhome" src="assets/img/emojis/bffs.png">
+                <img class="bffemoji bfftarget onuserhome" src="assets/img/emojis/bffs.png">
             </li>
             <li>
-                <img class="lolemoji onuserhome" src="assets/img/emojis/lolemoji.png">
+                <img class="lolemoji loltarget onuserhome" src="assets/img/emojis/lolemoji.png">
             </li>
             <li>
-                <img class="nsfwemoji onuserhome" src="assets/img/emojis/nsfwemoji.png">
+                <img class="nsfwemoji nsfwtarget onuserhome" src="assets/img/emojis/nsfwemoji.png">
             </li>
             <li>
-                <img class="failemoji onuserhome" src="assets/img/emojis/failemoji.png">
+                <img class="failemoji failtarget onuserhome" src="assets/img/emojis/failemoji.png">
             </li>
             <li>
-                <img class="wtfamemoji onuserhome" src="assets/img/emojis/wtfemoji.png">
+                <img class="wtfamemoji wtfamtarget onuserhome" src="assets/img/emojis/wtfemoji.png">
             </li>
         </ul>
         <ul class="right hide-on-med-and-down">
@@ -43,22 +43,22 @@
 
 <ul class="sidenav" id="mobile-demo">
     <li>
-        <a class="ewemoji">EW</a>
+        <a class="ewtarget">EW</i></a>
     </li>
     <li>
-        <a class="bffemoji">BFF</a>
+        <a class="bfftarget">BFF</i></a>
     </li>
     <li>
-        <a class="lolemoji">LOL</a>
+        <a class="loltarget">LOL</i></a>
     </li>
     <li>
-        <a class="nsfwemoji">NSFW</a>
+        <a class="nsfwtarget">NSFW</i></a>
     </li>
     <li>
-        <a class="failemoji">FAIL</a>
+        <a class="failtarget">FAIL</i></a>
     </li>
     <li>
-        <a class="wtfamemoji">WTFam</a>
+        <a class="wtfamtarget">WTFam</i></a>
     </li>
     <li>
         <a class="fametarget">Hall Of Fame</i>
@@ -118,7 +118,7 @@
 
         });
 
-        $('.lolemoji').on('click', function (request, response) {
+        $('.loltarget').on('click', function (request, response) {
             window.location = "/userhome";
             $.get('/api/lol')
                 .then((response) => {
@@ -129,7 +129,7 @@
                     }
                 });
         });
-        $('.ewemoji').on('click', function (request, response) {
+        $('.ewtarget').on('click', function (request, response) {
             window.location = "/userhome";
             $.get('/api/ew')
                 .then((response) => {
@@ -141,7 +141,7 @@
                 });
         });
 
-        $('.bffemoji').on('click', function (request, response) {
+        $('.bfftarget').on('click', function (request, response) {
             window.location = "/userhome";
             $.get('/api/bff')
                 .then((response) => {
@@ -153,7 +153,7 @@
                 });
         });
 
-        $('.nsfwemoji').on('click', function (request, response) {
+        $('.nsfwtarget').on('click', function (request, response) {
             window.location = "/userhome";
             $.get('/api/nsfw')
                 .then((response) => {
@@ -165,7 +165,7 @@
                 });
         });
 
-        $('.failemoji').on('click', function (request, response) {
+        $('.failtarget').on('click', function (request, response) {
             window.location = "/userhome";
             $.get('/api/fail')
                 .then((response) => {
@@ -177,7 +177,7 @@
                 });
         });
 
-        $('.wtfamemoji').on('click', function (request, response) {
+        $('.wtfamtarget').on('click', function (request, response) {
             window.location = "/userhome";
             $.get('/api/wtfam')
                 .then((response) => {
