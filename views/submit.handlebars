@@ -132,55 +132,144 @@
     </div>
 </div>
 
-<script type="text/javascript" src="assets/javascript/materialize.min.js"></script>
-<script type="text/javascript" src="assets/javascript/materializejs.js"></script>
+<script type="text/javascript" src="assets/javascript/uploadfile.js"></script>
 
 <script>
-    $(document).ready( () => {
+    $(document).ready(() => {
 
         $.get('/api/submit-text-img')
-        .then( (response) => {
-            var textId = response.id
-            console.log("response.id on page load: " + textId)
-            var imageElem = $('<img src="' + response.image + '">')
-            $('.textupload').html(imageElem);
+            .then((response) => {
+                var textId = response.id
+                console.log("response.id on page load: " + textId)
+                var imageElem = $('<img src="' + response.image + '">')
+                $('.textupload').html(imageElem);
 
-            $("#updatetextform").on("submit", (event) => {
-                event.preventDefault();
+                $("#updatetextform").on("submit", (event) => {
+                    event.preventDefault();
 
-                if ($('#ew').prop('checked')) { var ewV = 1 } else { var ewV = 0 };
-                if ($('#bff').prop('checked')) { var bffV = 1 } else { var bffV = 0 };
-                if ($('#lol').prop('checked')) { var lolV = 1 } else { var lolV = 0 };
-                if ($('#nsfw').prop('checked')) { var nsfwV = 1 } else { var nsfwV = 0 };
-                if ($('#fail').prop('checked')) { var failV = 1 } else { var failV = 0 };
-                if ($('#wtfam').prop('checked')) { var wtfamV = 1 } else { var wtfamV = 0 };
+                    if ($('#ew').prop('checked')) { var ewV = 1 } else { var ewV = 0 };
+                    if ($('#bff').prop('checked')) { var bffV = 1 } else { var bffV = 0 };
+                    if ($('#lol').prop('checked')) { var lolV = 1 } else { var lolV = 0 };
+                    if ($('#nsfw').prop('checked')) { var nsfwV = 1 } else { var nsfwV = 0 };
+                    if ($('#fail').prop('checked')) { var failV = 1 } else { var failV = 0 };
+                    if ($('#wtfam').prop('checked')) { var wtfamV = 1 } else { var wtfamV = 0 };
 
-                var updatedText = {
-                    id: textId,
-                    caption: $("#caption").val(),
-                    ew: ewV,
-                    bff: bffV,
-                    lol: lolV,
-                    nsfw: nsfwV,
-                    fail: failV,
-                    wtfam: wtfamV,
-                };
-                console.log(updatedText);
+                    var updatedText = {
+                        id: textId,
+                        caption: $("#caption").val(),
+                        ew: ewV,
+                        bff: bffV,
+                        lol: lolV,
+                        nsfw: nsfwV,
+                        fail: failV,
+                        wtfam: wtfamV,
+                    };
+                    console.log(updatedText);
 
-                $.ajax('/api/submit-txt-img', {
-                    type: "PUT",
-                    data: updatedText
-                })
-                .then(function successModal() {
-                    $('.modal').modal({
-                        onOpenEnd: function () {
-                            setTimeout(function () {
-                                window.location.href = '/userhome';
-                            }, 500);
-                        }
+                    $.ajax('/api/submit-txt-img', {
+                        type: "PUT",
+                        data: updatedText
                     })
+                        .then(function successModal() {
+                            $('.modal').modal({
+                                onOpenEnd: function () {
+                                    setTimeout(function () {
+                                        window.location.href = '/userhome';
+                                    }, 500);
+                                }
+                            })
+                        })
                 })
             })
-        })
-    })
+
+        $.get('/api/userhome')
+            .then((response) => {
+                for (var i = 0; i < response.length; i++) {
+                    var imageElem = $('<a data-textId=' + response[i].id + ' href="/textfocus/' + response[i].id + '"><img class="whatthetextimg" src="' + response[i].image + '"></a>' + '<br>');
+                    $('.everyonestextsdiv').prepend(imageElem);
+                }
+            });
+
+        $('.lolemoji').on('click', function (request, response) {
+            $.get('/api/lol')
+                .then((response) => {
+                    $('.everyonestextsdiv').empty();
+                    for (var i = 0; i < response.length; i++) {
+                        var lolElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
+                        $('.everyonestextsdiv').prepend(lolElem);
+                        window.location = "/userhome";
+                    }
+                });
+        });
+        $('.ewemoji').on('click', function (request, response) {
+            $.get('/api/ew')
+                .then((response) => {
+                    $('.everyonestextsdiv').empty();
+                    for (var i = 0; i < response.length; i++) {
+                        var ewElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
+                        $('.everyonestextsdiv').prepend(ewElem);
+                        window.location = "/userhome";
+                    }
+                });
+        });
+
+        $('.bffemoji').on('click', function (request, response) {
+            $.get('/api/bff')
+                .then((response) => {
+                    $('.everyonestextsdiv').empty();
+                    for (var i = 0; i < response.length; i++) {
+                        var bffElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
+                        $('.everyonestextsdiv').prepend(bffElem);
+                        window.location = "/userhome";
+                    }
+                });
+        });
+
+        $('.lolemoji').on('click', function (request, response) {
+            $.get('/api/lol')
+                .then((response) => {
+                    $('.everyonestextsdiv').empty();
+                    for (var i = 0; i < response.length; i++) {
+                        var lolElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
+                        $('.everyonestextsdiv').prepend(lolElem);
+                        window.location = "/userhome";
+                    }
+                });
+        });
+
+        $('.nsfwemoji').on('click', function (request, response) {
+
+            $.get('/api/nsfw')
+                .then((response) => {
+                    $('.everyonestextsdiv').empty();
+                    for (var i = 0; i < response.length; i++) {
+                        var nsfwElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
+                        $('.everyonestextsdiv').prepend(nsfwElem);
+                        window.location = "/userhome";
+                    }
+                });
+        });
+
+        $('.failemoji').on('click', function (request, response) {
+            $.get('/api/fail')
+                .then((response) => {
+                    $('.everyonestextsdiv').empty();
+                    for (var i = 0; i < response.length; i++) {
+                        var failElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
+                        $('.everyonestextsdiv').prepend(failElem);
+                    }
+                });
+        });
+
+        $('.wtfamemoji').on('click', function (request, response) {
+            $.get('/api/wtfam')
+                .then((response) => {
+                    $('.everyonestextsdiv').empty();
+                    for (var i = 0; i < response.length; i++) {
+                        var wtfamElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
+                        $('.everyonestextsdiv').prepend(wtfamElem);
+                    }
+                });
+        });
+    });
 </script>
