@@ -122,7 +122,8 @@
 
             <button class="btn btn-primary textuploadsubmit light-blue" type="submit">Submit</button>
 
-            {{!-- <div id="modalsubmit" class="modal modal-close">
+            {{!--
+            <div id="modalsubmit" class="modal modal-close">
                 <div class="modal-content">
                     <h4>Thx for submitting ur text!</h4>
                 </div>
@@ -170,6 +171,9 @@
                         type: "PUT",
                         data: updatedText
                     })
+
+                    window.location.href = '/userhome';
+
                 })
             })
 
