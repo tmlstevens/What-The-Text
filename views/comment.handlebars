@@ -165,8 +165,6 @@
         <script>
             $(document).ready(function () {
 
-                document.getElementById("geturl").innerHTML = window.location.href;
-
                 var textId = window.location.pathname.split("/").pop()
                 $.get('/api/textfocusget/' + textId)
                     .then(function (response) {
