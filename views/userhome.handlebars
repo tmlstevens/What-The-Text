@@ -1,84 +1,3 @@
-<nav>
-    <div class="nav-wrapper">
-        <a href="/" class="brandtitle brand-logo">
-            <img class="logo" src="assets/img/logo.png">
-        </a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger">
-            <i class="material-icons">menu</i>
-        </a>
-        <ul class="left hide-on-med-and-down">
-            <li>
-                <img class="ewemoji onuserhome" src="assets/img/emojis/ewemoji.png">
-            </li>
-            <li>
-                <img class="bffsemoji onuserhome" src="assets/img/emojis/bffs.png">
-            </li>
-            <li>
-                <img class="lolemoji onuserhome" src="assets/img/emojis/lolemoji.png">
-            </li>
-            <li>
-                <img class="nsfwemoji onuserhome" src="assets/img/emojis/nsfwemoji.png">
-            </li>
-            <li>
-                <img class="failemoji onuserhome" src="assets/img/emojis/failemoji.png">
-            </li>
-            <li>
-                <img class="wtfemoji onuserhome" src="assets/img/emojis/wtfemoji.png">
-            </li>
-        </ul>
-        <ul class="right hide-on-med-and-down">
-            <li>
-                <a href="/halloffame">
-                    <img class="fameemoji" src="assets/img/emojis/fameemoji2.png">
-                </a>
-            </li>
-            <li>
-                <a href="/hallofshame">
-                    <img class="shameemoji" src="assets/img/emojis/shameemoji2.png">
-                    </i>
-                </a>
-            </li>
-            <li>
-                <a href="/logout">
-                    <img class="door modal-trigger" data-target="modalsignout" src="assets/img/emojis/door.png">
-                </a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
-<ul class="sidenav" id="mobile-demo">
-    <li>
-        <img class="ewemoji">EW
-    </li>
-    <li>
-        <img class="bffemoji">BFF
-    </li>
-    <li>
-        <img class="lolemoji">LOL
-    </li>
-    <li>
-        <img class="nsfwemoji">NSFW
-    </li>
-    <li>
-        <img class="failemoji">FAIL
-    </li>
-    <li>
-        <img class="wtfamemoji">WTFam
-    </li>
-    <li>
-        <a href="/halloffame">Hall Of Fame</a>
-    </li>
-    <li>
-        <a href="/hallofshame">Hall Of Shame</i>
-        </a>
-    </li>
-    <li>
-        <a class="modal-trigger" data-target="modalsignout" href="#modalsignout">Sign Out</i>
-        </a>
-    </li>
-</ul>
-
 <div class="wrapper">
     <div class="row">
         <div class="col s12 m12 l6 xl6">
@@ -87,7 +6,7 @@
         <div class="col s11 push-s2 m7 pull-m2 l6 right pull-l1 uploadfile card">
             <div class="card-content black-text">
                 <div id="drop-area">
-                    <form method='post' class="my-form" enctype='multipart/form-data' action='/upload'>
+                    <form method='post' class="my-form" enctype='multipart/form-data' action='/upload-text-img'>
                         <p>Upload your screenshots using the button below, or by dragging and dropping (PNG only!) </p>
                         <input type="file" name='file' id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
                         <label class="button btn-floating btn-large light-blue lighten-2 waves-effect waves-green waves-ripple addtext" for="fileElem">
@@ -103,22 +22,6 @@
             </div>
         </div>
 
-        {{!--
-        <div class="col s12 m1 l1 showmebox left">
-            Show me:
-            <p>
-                <label>
-                    <input name="filterchoices" type="radio" class="with-gap" checked>
-                    <span class="showmeboxsmall">Everyone's Activity</span>
-                </label>
-            </p>
-            <p>
-                <label>
-                    <input name="filterchoices" type="radio" class="with-gap">
-                    <span>My Activity</span>
-                </label>
-            </p>
-        </div> --}}
     </div>
 
 
@@ -127,10 +30,6 @@
         <h5 class="closerlook">Click each text for a closer look, and to leave a comment!</h5>
         <div class="everyonestextsdiv"></div>
     </div>
-    <!-- <div class="col-xs-6 col-sm-6 col-md-6 mytexts">
-                <h2>My Activity</h2>
-                <div class="mytextsdiv"></div>
-            </div> -->
 
     <div id="modalsignout" class="modal modal-close">
         <div class="modal-content">
