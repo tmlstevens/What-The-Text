@@ -123,9 +123,9 @@
                 Sharing is caring!
 
                 <div class="socialholder">
-                    <div class="fb-share-button" data-href="https://rose-eat-da-burger.herokuapp.com" data-layout="button" data-size="small"
+                    <div class="fb-share-button" data-href="https://radiant-beach-66260.herokuapp.com/" data-layout="button" data-size="small"
                         data-mobile-iframe="true">
-                        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frose-eat-da-burger.herokuapp.com%2F&amp;src=sdkpreparse"
+                        <a target="_blank" href="#geturl"
                             class="fb-xfbml-parse-ignore">Share</a>
                     </div>
                     <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=WHA%20THE%20TEXT%20is%20this?!">
@@ -164,6 +164,8 @@
 
         <script>
             $(document).ready(function () {
+
+                document.getElementById("geturl").innerHTML = window.location.href;
 
                 var textId = window.location.pathname.split("/").pop()
                 $.get('/api/textfocusget/' + textId)
