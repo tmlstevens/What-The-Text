@@ -203,7 +203,7 @@
                         .then((response) => {
                             var comment = response.comment;
                             var date = response.createdAt;
-                            $('.comments').append(comment, date);
+                            $('.comments').prepend(comment + date);
                             $.get('/text/comments')
                                 .then(function (response) {
                                     console.log("Comment response:" + response)
