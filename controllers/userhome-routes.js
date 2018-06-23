@@ -57,6 +57,15 @@ var router = (app) => {
             })
     });
 
+    app.get('/api/lol', (request, response) => {
+        db.Text.findAll({
+            where: { lol: 1 }
+        })
+            .then((result) => {
+                response.json(result);
+            })
+    });
+
     app.get('/api/nsfw', (request, response) => {
         db.Text.findAll({
             where: { nsfw: 1 }
@@ -75,11 +84,20 @@ var router = (app) => {
             })
     });
 
-    app.get('/halloffame', (request, response) => {
+    app.get('/api/fail', (request, response) => {
+        db.Text.findAll({
+            where: { fail: 1 }
+        })
+            .then((result) => {
+                response.json(result);
+            })
+    });
+
+    app.get('/halloffame', function (request, response) {
         response.render('halloffame')
     })
 
-    app.get('/hallofshame', (request, response) => {
+    app.get('/hallofshame', function (request, response) {
         response.render('hallofshame')
     })
 
@@ -110,23 +128,6 @@ var router = (app) => {
                 response.json(result);
             })
     });
-
-    app.post('/text/comments/create', (request, response) => {
-        var newComment = request.body;
-        db.Comment.create(newComment)
-        .then((result) => {
-            response.json(result)
-        })
-    })
-
-    app.get('/text/comments', (request, response) => {
-        db.Comment.findAll({})
-            .then((result) => {
-                console.log(result);
-                response.json(result);
-            });
-    })
-
     ///////////////////////////////////////////////////////////////////////
 
     ////////  ROUTES USED ON SUBMIT.HANDLEBARS  ///////////////////////////
@@ -157,6 +158,23 @@ var router = (app) => {
             })
     });
 ///////////////////////////////////////////////////////////////////////
+
+
+    app.post('/text/comments/create', (request, response) => {
+        var newComment = request.body;
+        db.Comment.create(newComment)
+        .then((result) => {
+            response.json(result)
+        })
+    })
+
+    app.get('/text/comments', (request, response) => {
+        db.Comment.findAll({})
+            .then((result) => {
+                console.log(result);
+                response.json(result);
+            });
+    })
 
     app.post('/submit', (request, response) => {
         response.render('submit')
