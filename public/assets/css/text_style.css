@@ -113,8 +113,9 @@ nav .brand-logo {
 } */
 
 .comments {
-    margin-top: 140px;
+    margin-top: 100px;
     display: block;
+    height: 400px;
 }
 
 .date {
