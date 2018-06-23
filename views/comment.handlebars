@@ -119,6 +119,8 @@
             <div class="specifictext card">
             </div>
 
+            <div class="caption"></div>
+
             <div class="textsharing">
                 Sharing is caring!
 
@@ -210,6 +212,7 @@
 
                 $.get('/api/submit-text-img')
                     .then((response) => {
+                        console.log(response)
                         var date = response.createdAt;
                         $('#datepost').append(date);
                     });
