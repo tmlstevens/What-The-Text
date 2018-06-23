@@ -211,7 +211,7 @@
                 $.get('/api/submit-text-img')
                     .then((response) => {
                         var date = response.createdAt;
-                        $('.datepost').append(date);
+                        $('#datepost').append(date);
                     });
 
                 $.get('/api/userhome')
