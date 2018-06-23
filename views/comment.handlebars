@@ -138,8 +138,6 @@
             <div class="commentsonlysdiv">
                 <div class="comments">
                 </div>
-                <div class="date">
-                </div>
             </div>
 
             <form id="commentform">
@@ -176,7 +174,7 @@
                             //var hr = $('<hr>');
                             //var commentdate = response.Comments[i].createdAt;
 
-                            $('.comments').prepend(response.Comments[i].comment + '<br><br>' + response.Comments[i].createdAt + '<br><br>');
+                            $('.comments').prepend('<strong>' + response.Comments[i].comment + '</strong><br><br>' + response.Comments[i].createdAt + '<br><br>');
 
                             // var date = response.Text[i].dataValues.createdAt;
                             // $('.datepost').append(date);
