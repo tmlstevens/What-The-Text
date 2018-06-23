@@ -188,6 +188,11 @@ h2 {
     margin-left: 130px;
 }
 
+.card {
+    max-width: 42%;
+    margin-left: 130px;
+}
+
 .specifictext {
     background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);    
 }
