@@ -182,7 +182,7 @@
                             $('.comments').prepend('<strong>' + response.Comments[i].comment + '</strong><br><br>' + response.Comments[i].createdAt + '<br><br>');
 
                             var date = response.Text[i].dataValues.createdAt;
-                            console.log(response)
+                            console.log(response.Text[i])
                         }
                         $('.datepost').append(date);
 
