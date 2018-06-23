@@ -150,7 +150,8 @@
                 </div>
             </form>
 
-            {{!-- <div id="modalcomment" class="modal modal-close">
+            {{!--
+            <div id="modalcomment" class="modal modal-close">
                 <div class="modal-content">
                     <h4>Thx for ur epic comment! 😄</h4>
                 </div>
@@ -181,130 +182,138 @@
 
                             $('.comments').prepend('<strong>' + response.Comments[i].comment + '</strong><br><br>' + response.Comments[i].createdAt + '<br><br>');
 
+
+
+                            //console.log("text:" + response.Text.dataValues.id);
+
+
+                            var imageElem = $('<img class="commentdiv" src="' + response.image + '">')
+                            $('.specifictext').html(imageElem);
+                        });
+
+                $.get('/api/submit-text-img')
+                    .then((response) => {
+
+                        for (var i = 0; i < response.Text.length; i++) {
                             var date = response.Text[i].dataValues.createdAt;
-                            console.log(response.Text[i])
                         }
                         $('.datepost').append(date);
-
-                        //console.log("text:" + response.Text.dataValues.id);
-
-
-                        var imageElem = $('<img class="commentdiv" src="' + response.image + '">')
-                        $('.specifictext').html(imageElem);
-                    });
-                $("#commentform").on("submit", function (event) {
-                    event.preventDefault();
-                    window.location.href = '/userhome';
-                    var comment = {
-                        comment: $('#commentTxtArea').val(),
-                        userId: 20,
-                        textId: textId
-                    };
-                    $.ajax('/text/comments/create', {
-                        type: 'POST',
-                        data: comment
+                    }
                     })
-                        .then((response) => {
-                            var comment = response.comment;
-                            $('.comments').append(comment);
-                            $.get('/text/comments')
-                                .then(function (response) {
-                                    console.log("Comment response:" + response)
-                                });
-                        })
-                })
 
-                $.get('/api/userhome')
+            $("#commentform").on("submit", function (event) {
+                event.preventDefault();
+                window.location.href = '/userhome';
+                var comment = {
+                    comment: $('#commentTxtArea').val(),
+                    userId: 20,
+                    textId: textId
+                };
+                $.ajax('/text/comments/create', {
+                    type: 'POST',
+                    data: comment
+                })
                     .then((response) => {
+                        var comment = response.comment;
+                        $('.comments').append(comment);
+                        $.get('/text/comments')
+                            .then(function (response) {
+                                console.log("Comment response:" + response)
+                            });
+                    })
+            })
+
+            $.get('/api/userhome')
+                .then((response) => {
+                    for (var i = 0; i < response.length; i++) {
+                        var imageElem = $('<a data-textId=' + response[i].id + ' href="/textfocus/' + response[i].id + '"><img class="whatthetextimg" src="' + response[i].image + '"></a>' + '<br>');
+                        $('.everyonestextsdiv').prepend(imageElem);
+                    }
+                });
+
+            $('.fametarget').on('click', function (request, response) {
+                window.location = "/halloffame";
+
+            });
+            $('.shametarget').on('click', function (request, response) {
+                window.location = "/hallofshame";
+
+            });
+            $('.logouttarget').on('click', function (request, response) {
+                window.location = "/logout";
+
+            });
+
+            $('.loltarget').on('click', function (request, response) {
+                window.location = "/userhome";
+                $.get('/api/lol')
+                    .then((response) => {
+                        $('.everyonestextsdiv').empty();
                         for (var i = 0; i < response.length; i++) {
-                            var imageElem = $('<a data-textId=' + response[i].id + ' href="/textfocus/' + response[i].id + '"><img class="whatthetextimg" src="' + response[i].image + '"></a>' + '<br>');
-                            $('.everyonestextsdiv').prepend(imageElem);
+                            var lolElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
+                            $('.everyonestextsdiv').prepend(lolElem);
                         }
                     });
+            });
+            $('.ewtarget').on('click', function (request, response) {
+                window.location = "/userhome";
+                $.get('/api/ew')
+                    .then((response) => {
+                        $('.everyonestextsdiv').empty();
+                        for (var i = 0; i < response.length; i++) {
+                            var ewElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
+                            $('.everyonestextsdiv').prepend(ewElem);
+                        }
+                    });
+            });
 
-                $('.fametarget').on('click', function (request, response) {
-                    window.location = "/halloffame";
+            $('.bfftarget').on('click', function (request, response) {
+                window.location = "/userhome";
+                $.get('/api/bff')
+                    .then((response) => {
+                        $('.everyonestextsdiv').empty();
+                        for (var i = 0; i < response.length; i++) {
+                            var bffElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
+                            $('.everyonestextsdiv').prepend(bffElem);
+                        }
+                    });
+            });
 
-                });
-                $('.shametarget').on('click', function (request, response) {
-                    window.location = "/hallofshame";
+            $('.nsfwtarget').on('click', function (request, response) {
+                window.location = "/userhome";
+                $.get('/api/nsfw')
+                    .then((response) => {
+                        $('.everyonestextsdiv').empty();
+                        for (var i = 0; i < response.length; i++) {
+                            var nsfwElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
+                            $('.everyonestextsdiv').prepend(nsfwElem);
+                        }
+                    });
+            });
 
-                });
-                $('.logouttarget').on('click', function (request, response) {
-                    window.location = "/logout";
+            $('.failtarget').on('click', function (request, response) {
+                window.location = "/userhome";
+                $.get('/api/fail')
+                    .then((response) => {
+                        $('.everyonestextsdiv').empty();
+                        for (var i = 0; i < response.length; i++) {
+                            var failElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
+                            $('.everyonestextsdiv').prepend(failElem);
+                        }
+                    });
+            });
 
-                });
-
-                $('.loltarget').on('click', function (request, response) {
-                    window.location = "/userhome";
-                    $.get('/api/lol')
-                        .then((response) => {
-                            $('.everyonestextsdiv').empty();
-                            for (var i = 0; i < response.length; i++) {
-                                var lolElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
-                                $('.everyonestextsdiv').prepend(lolElem);
-                            }
-                        });
-                });
-                $('.ewtarget').on('click', function (request, response) {
-                    window.location = "/userhome";
-                    $.get('/api/ew')
-                        .then((response) => {
-                            $('.everyonestextsdiv').empty();
-                            for (var i = 0; i < response.length; i++) {
-                                var ewElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
-                                $('.everyonestextsdiv').prepend(ewElem);
-                            }
-                        });
-                });
-
-                $('.bfftarget').on('click', function (request, response) {
-                    window.location = "/userhome";
-                    $.get('/api/bff')
-                        .then((response) => {
-                            $('.everyonestextsdiv').empty();
-                            for (var i = 0; i < response.length; i++) {
-                                var bffElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
-                                $('.everyonestextsdiv').prepend(bffElem);
-                            }
-                        });
-                });
-
-                $('.nsfwtarget').on('click', function (request, response) {
-                    window.location = "/userhome";
-                    $.get('/api/nsfw')
-                        .then((response) => {
-                            $('.everyonestextsdiv').empty();
-                            for (var i = 0; i < response.length; i++) {
-                                var nsfwElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
-                                $('.everyonestextsdiv').prepend(nsfwElem);
-                            }
-                        });
-                });
-
-                $('.failtarget').on('click', function (request, response) {
-                    window.location = "/userhome";
-                    $.get('/api/fail')
-                        .then((response) => {
-                            $('.everyonestextsdiv').empty();
-                            for (var i = 0; i < response.length; i++) {
-                                var failElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
-                                $('.everyonestextsdiv').prepend(failElem);
-                            }
-                        });
-                });
-
-                $('.wtfamtarget').on('click', function (request, response) {
-                    window.location = "/userhome";
-                    $.get('/api/wtfam')
-                        .then((response) => {
-                            $('.everyonestextsdiv').empty();
-                            for (var i = 0; i < response.length; i++) {
-                                var wtfamElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
-                                $('.everyonestextsdiv').prepend(wtfamElem);
-                            }
-                        });
-                });
+            $('.wtfamtarget').on('click', function (request, response) {
+                window.location = "/userhome";
+                $.get('/api/wtfam')
+                    .then((response) => {
+                        $('.everyonestextsdiv').empty();
+                        for (var i = 0; i < response.length; i++) {
+                            var wtfamElem = $('<a data-textId=' + response[i].id + 'href="/textfocus/' + response[i].id + '"><img src="' + response[i].image + '"></a>');
+                            $('.everyonestextsdiv').prepend(wtfamElem);
+                        }
+                    });
+            });
 
             })
         </script>
