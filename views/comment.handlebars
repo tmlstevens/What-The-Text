@@ -189,8 +189,6 @@
                 $("#commentform").on("submit", function (event) {
                     event.preventDefault();
                     //window.location.href = '/userhome';
-                    this.reset();
-
                     var comment = {
                         comment: $('#commentTxtArea').val(),
                         userId: 20,
@@ -209,6 +207,9 @@
                                     console.log("Comment response:" + response)
                                 });
                         })
+
+                    this.reset();
+
                 })
 
                 $.get('/api/submit-text-img')
