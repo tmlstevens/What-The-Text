@@ -188,7 +188,8 @@
                     })
 
                 $("#commentform").on("submit", function (event) {
-                    //event.preventDefault();
+                    event.preventDefault();
+                    commentTxtArea.empty();
                     //window.location.href = '/userhome';
                     var comment = {
                         comment: $('#commentTxtArea').val(),
