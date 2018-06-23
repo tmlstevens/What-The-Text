@@ -459,6 +459,10 @@ p {
     margin-top: 2px;
 }
 
+#commentTxtArea {
+    width: 70%;
+}
+
 .hofcategory {
     text-align: center;
 }
