@@ -189,6 +189,8 @@
                 $("#commentform").on("submit", function (event) {
                     event.preventDefault();
                     //window.location.href = '/userhome';
+                    $("#commentTxtArea").reset();
+
                     var comment = {
                         comment: $('#commentTxtArea').val(),
                         userId: 20,
@@ -201,15 +203,12 @@
                         .then((response) => {
                             var comment = response.comment;
                             var date = response.createdAt;
-                            $('.comments').prepend('<strong>' + comment + '</strong><br><br>' + '<em>' + date + '</em><br><br>');
+                            $('.comments').append('<strong>' + comment + '</strong><br><br>' + '<em>' + date + '</em><br><br>');
                             $.get('/text/comments')
                                 .then(function (response) {
                                     console.log("Comment response:" + response)
                                 });
                         })
-
-                    $("#commentTxtArea").empty();
-
                 })
 
                 $.get('/api/submit-text-img')
