@@ -453,6 +453,11 @@ p {
     margin-top: 2px;
 }
 
+.caption {
+    width: 40%;
+    margin-top: 2px;
+}
+
 .hofcategory {
     text-align: center;
 }

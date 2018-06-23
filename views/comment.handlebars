@@ -120,20 +120,6 @@
             </div>
 
             <div class="caption"></div>
-
-            <div class="textsharing">
-                Sharing is caring!
-
-                <div class="socialholder">
-                    <div class="fb-share-button" data-href="https://radiant-beach-66260.herokuapp.com/" data-layout="button" data-size="small"
-                        data-mobile-iframe="true">
-                        <a target="_blank" href="#geturl" class="fb-xfbml-parse-ignore">Share</a>
-                    </div>
-                    <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=WHA%20THE%20TEXT%20is%20this?!">
-                        <img class="socialicons twicon" src="assets/img/tw.png">
-                    </a>
-                </div>
-            </div>
         </div>
 
         <div class="col s12 m5 commentsarea">
@@ -158,6 +144,20 @@
                     <h4>Thx for ur epic comment! 😄</h4>
                 </div>
             </div> --}}
+
+            <div class="textsharing">
+                Sharing is caring!
+
+                <div class="socialholder">
+                    <div class="fb-share-button" data-href="https://radiant-beach-66260.herokuapp.com/" data-layout="button" data-size="small"
+                        data-mobile-iframe="true">
+                        <a target="_blank" href="#geturl" class="fb-xfbml-parse-ignore">Share</a>
+                    </div>
+                    <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=WHA%20THE%20TEXT%20is%20this?!">
+                        <img class="socialicons twicon" src="assets/img/tw.png">
+                    </a>
+                </div>
+            </div>
 
         </div>
 
@@ -212,9 +212,10 @@
 
                 $.get('/api/submit-text-img')
                     .then((response) => {
-                        console.log(response)
                         var date = response.createdAt;
+                        var caption = response.caption;
                         $('#datepost').append(date);
+                        $('.caption').append(caption);
                     });
 
                 $.get('/api/userhome')
