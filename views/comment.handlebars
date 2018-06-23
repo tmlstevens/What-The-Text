@@ -211,12 +211,14 @@
                 $.get('/api/submit-text-img')
                     .then((response) => {
                         console.log(response)
-                       // for (var i = 0; i < response.Text.length; i++) {
-                        //    var date = response.Text[i].dataValues.createdAt;
-                         //   $('.datepost').append(date);
-                       // }
+                        console.log(response.createdAt)
 
-                        });
+                        // for (var i = 0; i < response.Text.length; i++) {
+                        //    var date = response.Text[i].dataValues.createdAt;
+                        //   $('.datepost').append(date);
+                        // }
+
+                    });
 
                 $.get('/api/userhome')
                     .then((response) => {
