@@ -422,7 +422,7 @@ p {
 }
 
 .commentsonlysdiv {
-      height: 600px;
+      height: 300px;
       overflow-y: scroll;
 }
 
