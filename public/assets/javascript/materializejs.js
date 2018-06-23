@@ -6,6 +6,6 @@ window.onload = function () {
 
 $(document).ready(function () {
   $('.tabs').tabs();
+  $('.modal').modal();
 });
-
 
