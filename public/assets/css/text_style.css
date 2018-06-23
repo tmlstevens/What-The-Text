@@ -184,11 +184,6 @@ h2 {
 }
 
 .specifictext img {
-    max-width: 82%;
-    margin-left: 130px;
-}
-
-.card {
     max-width: 42%;
     margin-left: 130px;
 }
@@ -422,8 +417,7 @@ p {
 }
 
 .commentsarea {
-      margin-top: -500px;
-      height: 600px;
+      height: 500px;
 }
 
 .commentsonlysdiv {
