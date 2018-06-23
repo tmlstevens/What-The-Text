@@ -1,9 +1,7 @@
 <nav>
     <div class="nav-wrapper">
-        <a href="/" class="brandtitle brand-logo">
-            <img class="logo" src="assets/img/logo.png">
-        </a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+        <img class="userhometarget brandtitle brand-logo logo" src="assets/img/logo.png">
+        <a href="/userhome" data-target="mobile-demo" class="sidenav-trigger">
             <i class="material-icons">menu</i>
         </a>
         <ul class="left hide-on-med-and-down">
@@ -43,22 +41,28 @@
 
 <ul class="sidenav" id="mobile-demo">
     <li>
-        <a class="ewtarget">EW</i></a>
+        <a class="ewtarget">EW</i>
+        </a>
     </li>
     <li>
-        <a class="bfftarget">BFF</i></a>
+        <a class="bfftarget">BFF</i>
+        </a>
     </li>
     <li>
-        <a class="loltarget">LOL</i></a>
+        <a class="loltarget">LOL</i>
+        </a>
     </li>
     <li>
-        <a class="nsfwtarget">NSFW</i></a>
+        <a class="nsfwtarget">NSFW</i>
+        </a>
     </li>
     <li>
-        <a class="failtarget">FAIL</i></a>
+        <a class="failtarget">FAIL</i>
+        </a>
     </li>
     <li>
-        <a class="wtfamtarget">WTFam</i></a>
+        <a class="wtfamtarget">WTFam</i>
+        </a>
     </li>
     <li>
         <a class="fametarget">Hall Of Fame</i>
@@ -116,6 +120,10 @@
         $('.logouttarget').on('click', function (request, response) {
             window.location = "/logout";
 
+        });
+
+        $('.userhometarget').on('click', function (request, response) {
+            window.location = "/userhome";
         });
 
         $('.loltarget').on('click', function (request, response) {

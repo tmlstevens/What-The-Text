@@ -1,9 +1,7 @@
 <nav>
     <div class="nav-wrapper">
-        <a href="/" class="brandtitle brand-logo">
-            <img class="logo" src="assets/img/logo.png">
-        </a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+        <img class="userhometarget brandtitle brand-logo logo" src="assets/img/logo.png">
+        <a href="/userhome" data-target="mobile-demo" class="sidenav-trigger">
             <i class="material-icons">menu</i>
         </a>
         <ul class="left hide-on-med-and-down">
@@ -185,6 +183,10 @@
                     $('.everyonestextsdiv').prepend(imageElem);
                 }
             });
+
+        $('.userhometarget').on('click', function (request, response) {
+            window.location = "/userhome";
+        });
 
         $('.fametarget').on('click', function (request, response) {
             window.location = "/halloffame";
