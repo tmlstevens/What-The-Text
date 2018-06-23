@@ -118,7 +118,10 @@
             {{!-- screenshot goes below --}}
             <div class="specifictext card">
             </div>
-
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col s12 col m7 clickedtextarea left">
             <div class="caption card">
             </div>
 
@@ -136,7 +139,9 @@
                 </div>
             </div>
         </div>
+    </div>
 
+    <div class="row">
         <div class="col s12 m5 commentsarea">
             <div class="commentsonlysdiv">
                 <div class="comments">
@@ -156,8 +161,8 @@
                     <h4>Bye, foo-licia! 👋</h4>
                 </div>
             </div> --}}
-
         </div>
+    </div>
 
         {{!--
         <script type="text/javascript" src="assets/javascript/materializejs.js"></script> --}}
@@ -180,8 +185,9 @@
                             $('.comments').prepend('<strong>' + response.Comments[i].comment + '</strong><br><br>' + response.Comments[i].createdAt + '<br><br>');
 
                             var date = response.Text[i].createdAt;
-                            $('.datepost').append(date);
                         }
+                        $('.datepost').append(date);
+
                         //console.log("text:" + response.Text.dataValues.id);
 
 
