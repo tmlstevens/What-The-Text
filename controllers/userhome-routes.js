@@ -8,90 +8,90 @@ var router = (app) => {
     ////  ROUTES USED ON INDEX.HANDLEBARS - see inside config/passport.js
 
 
-////////  ROUTES USED ON USERHOME.HANDLEBARS  ///////////////////////////
+    ////////  ROUTES USED ON USERHOME.HANDLEBARS  ///////////////////////////
 
     app.get('/api/userhome', (request, response) => {
         db.Text.findAll({})
-        .then( (result) => {
-            response.json(result);
-        })
+            .then((result) => {
+                response.json(result);
+            })
     });
 
     app.get('/userhome', (request, response) => {
         response.render('userhome')
     });
 
-    
+
     app.get('/api/lol', (request, response) => {
         db.Text.findAll({
             where: { lol: 1 }
         })
-        .then( (result) => {
-            response.json(result);
-        })
+            .then((result) => {
+                response.json(result);
+            })
     });
 
     app.get('/api/wtfam', (request, response) => {
         db.Text.findAll({
             where: { wtfam: 1 }
         })
-        .then( (result) => {
-            response.json(result);
-        })
+            .then((result) => {
+                response.json(result);
+            })
     });
 
     app.get('/api/ew', (request, response) => {
         db.Text.findAll({
             where: { ew: 1 }
         })
-        .then( (result) => {
-            response.json(result);
-        })
+            .then((result) => {
+                response.json(result);
+            })
     });
 
     app.get('/api/bff', (request, response) => {
         db.Text.findAll({
             where: { bff: 1 }
         })
-        .then( (result) => {
-            response.json(result);
-        })
+            .then((result) => {
+                response.json(result);
+            })
     });
 
     app.get('/api/lol', (request, response) => {
         db.Text.findAll({
             where: { lol: 1 }
         })
-        .then( (result) => {
-            response.json(result);
-        })
+            .then((result) => {
+                response.json(result);
+            })
     });
 
     app.get('/api/nsfw', (request, response) => {
         db.Text.findAll({
             where: { nsfw: 1 }
         })
-        .then( (result) => {
-            response.json(result);
-        })
+            .then((result) => {
+                response.json(result);
+            })
     });
 
     app.get('/api/fail', (request, response) => {
         db.Text.findAll({
             where: { fail: 1 }
         })
-        .then( (result) => {
-            response.json(result);
-        })
+            .then((result) => {
+                response.json(result);
+            })
     });
 
     app.get('/api/fail', (request, response) => {
         db.Text.findAll({
             where: { fail: 1 }
         })
-        .then( (result) => {
-            response.json(result);
-        })
+            .then((result) => {
+                response.json(result);
+            })
     });
 
     app.get('/halloffame', function (request, response) {
@@ -102,60 +102,61 @@ var router = (app) => {
         response.render('hallofshame')
     })
 
-///////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
 
-////////  ROUTES USED ON COMMENT.HANDLEBARS  ///////////////////////////
+    ////////  ROUTES USED ON COMMENT.HANDLEBARS  ///////////////////////////
 
-    app.get('/api/textfocusget/:id',(request, response) => {
+    app.get('/api/textfocusget/:id', (request, response) => {
         var textId = request.params.id;
         db.Text.findById(textId, {
             include: [db.Comment]
         })
-        .then( (result) => {
-            response.json(result);
-        });
+            .then((result) => {
+                response.json(result);
+            });
     });
 
-    app.get('/textfocus/:id',(request, response) => {
+    app.get('/textfocus/:id', (request, response) => {
         response.render('comment')
     });
 
-    app.get('/text/comments/:id',(request, response) => {
+    app.get('/text/comments/:id', (request, response) => {
         var textId = request.params.id;
         db.Comment.findAll({
             where: { textid: textId }
         })
-        .then( (result) => {
-            response.json(result);
-        })
+            .then((result) => {
+                response.json(result);
+            })
     });
-///////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
 
-////////  ROUTES USED ON SUBMIT.HANDLEBARS  ///////////////////////////
+    ////////  ROUTES USED ON SUBMIT.HANDLEBARS  ///////////////////////////
 
-    app.get('/submit-txt-img',(request, response) => {
+    app.get('/submit-txt-img', (request, response) => {
         response.render('submit');
     });
 
-    app.get('/api/submit-text-img',(request, response) => {
+    app.get('/api/submit-text-img', (request, response) => {
         var loggedInUserId = request.user.id;
         db.Text.findOne({
             where: { userId: loggedInUserId },
-            order: [ ['createdAt', 'DESC'] ]
+            order: [['createdAt', 'DESC']]
         })
-        .then( (result) => {
-            response.json(result);
-        })
+            .then((result) => {
+                response.json(result);
+            })
     });
 
     app.put('/api/submit-txt-img', (request, response) => {
         var loggedInUserId = request.user.id;
         db.Text.update(request.body,
-            { where: { id: request.body.id } 
-        })
-        .then( (dbText) => {
-            response.json(dbText);
-        })
+            {
+                where: { id: request.body.id }
+            })
+            .then((dbText) => {
+                response.json(dbText);
+            })
     });
 
 
@@ -169,7 +170,7 @@ var router = (app) => {
 
     app.get('/text/comments', (request, response) => {
         db.Comment.findAll({})
-            .then( (result) => {
+            .then((result) => {
                 console.log(result);
                 response.json(result);
             });
@@ -200,12 +201,28 @@ var router = (app) => {
                     image: '/assets/uploads/' + request.file.filename + extension,
                     userId: request.user.id
                 })
-                .then( (text) => {
-                    response.redirect('/submit-txt-img')
-                });
+                    .then((text) => {
+                        response.redirect('/submit-txt-img')
+                    });
             })
         }
     });
+
+
+    ////////  ROUTES USED ON HALL OF FAME/HALL OF SHAME.HANDLEBARS  ///////////////////////////
+
+    // app.get("/emojifilter", (request, response) => {
+    //     console.log(request);
+       // setTimeout(function () {
+            // response.redirect("/userhome");
+            // var emoji = request.params.emoji;
+      //  }, 1000)
+    // }
+    // )
+
+    // app.get("/userhome/:emoji", (request, response) => {
+    //     response.redirect("/userhome")
+    // })
 
 }
 module.exports = router;
