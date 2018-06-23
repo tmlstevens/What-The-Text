@@ -145,15 +145,9 @@
             <form id="commentform">
                 <div class="captiononlydiv">
                     <textarea id='commentTxtArea' type="text" class="form-control" placeholder="Say something about it..." rows="3" cols="10"></textarea>
-                    <button class="btn waves-effect waves-light light-blue lighten-2 waves-green waves-ripple commentbutton modal-trigger" data-target="modalcomment" type="submit">Comment</button>
+                    <button class="btn waves-effect waves-light light-blue lighten-2 waves-green waves-ripple commentbutton" type="submit">Comment</button>
                 </div>
             </form>
-
-            <div id="modalcomment" class="modal modal-close">
-                <div class="modal-content">
-                    <h4>Thx for ur epic comment! 😄</h4>
-                </div>
-            </div>
 
             {{!--
             <div id="modalsignout" class="modal modal-close">
@@ -195,8 +189,7 @@
                     });
                 $("#commentform").on("submit", function (event) {
                     event.preventDefault();
-                    //window.location.href = '/userhome';
-                    test();
+                    window.location.href = '/userhome';
                     var comment = {
                         comment: $('#commentTxtArea').val(),
                         userId: 20,
@@ -307,16 +300,6 @@
                             }
                         });
                 });
-
-                function test() {
-                    $('.modal').modal({
-                        onOpenEnd: function () {
-                            setTimeout(function () {
-                                window.location.href = '/userhome';
-                            }, 1000);
-                        }
-                    });
-                }
 
             })
         </script>
