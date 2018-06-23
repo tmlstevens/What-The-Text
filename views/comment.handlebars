@@ -28,9 +28,7 @@
 
 <nav>
     <div class="nav-wrapper">
-        <a href="/" class="brandtitle brand-logo">
-            <img class="logo" src="assets/img/logo.png">
-        </a>
+            <img class="userhometarget logo" src="assets/img/logo.png">
         <a href="#" data-target="mobile-demo" class="sidenav-trigger">
             <i class="material-icons">menu</i>
         </a>
@@ -229,8 +227,12 @@
 
                 $('.fametarget').on('click', function (request, response) {
                     window.location = "/halloffame";
-
                 });
+
+                $('.userhometarget').on('click', function (request, response) {
+                    window.location = "/userhome";
+                });
+
                 $('.shametarget').on('click', function (request, response) {
                     window.location = "/hallofshame";
 
