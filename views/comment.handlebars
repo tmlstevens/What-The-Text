@@ -28,7 +28,7 @@
 
 <nav>
     <div class="nav-wrapper">
-            <img class="userhometarget brandtitle brand-logo logo" src="assets/img/logo.png">
+        <img class="userhometarget brandtitle brand-logo logo" src="assets/img/logo.png">
         <a href="/userhome" data-target="mobile-demo" class="sidenav-trigger">
             <i class="material-icons">menu</i>
         </a>
@@ -148,8 +148,7 @@
                     Sharing is caring!
 
                     <div class="socialholder">
-                        <div class="fb-share-button" data-href="http://what-the-text.herokuapp.com/" data-layout="button" data-size="small"
-                            data-mobile-iframe="true">
+                        <div class="fb-share-button" data-href="http://what-the-text.herokuapp.com/" data-layout="button" data-size="small" data-mobile-iframe="true">
                             <a target="_blank" href="#geturl" class="fb-xfbml-parse-ignore">Share</a>
                         </div>
                         <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=WHA%20THE%20TEXT%20is%20this?!">
@@ -189,7 +188,6 @@
 
                 $("#commentform").on("submit", function (event) {
                     event.preventDefault();
-                    commentTxtArea.empty();
                     //window.location.href = '/userhome';
                     var comment = {
                         comment: $('#commentTxtArea').val(),
@@ -209,6 +207,9 @@
                                     console.log("Comment response:" + response)
                                 });
                         })
+
+                    $("#commentTxtArea").empty();
+
                 })
 
                 $.get('/api/submit-text-img')
