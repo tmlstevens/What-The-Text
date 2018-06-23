@@ -149,22 +149,23 @@ var router = (app) => {
             response.json(dbText);
         })
     });
+///////////////////////////////////////////////////////////////////////
 
 
     app.post('/text/comments/create', (request, response) => {
         var newComment = request.body;
         db.Comment.create(newComment)
-            .then((result) => {
-                response.json(result)
-            })
+        .then((result) => {
+            response.json(result)
+        })
     })
 
     app.get('/text/comments', (request, response) => {
         db.Comment.findAll({})
-            .then( (result) => {
-                console.log(result);
-                response.json(result);
-            });
+        .then( (result) => {
+            console.log(result);
+            response.json(result);
+        })
     })
 
     app.post('/submit', (request, response) => {
@@ -174,9 +175,9 @@ var router = (app) => {
     var multer = require("multer");
     var handleError = (error, response) => {
         response
-            .status(500)
-            .contentType("text/plain")
-            .end("Something went terribly wrong...");
+        .status(500)
+        .contentType("text/plain")
+        .end("Something went terribly wrong...");
     };
     var upload = multer({ dest: "public/assets/uploads/" });
 
