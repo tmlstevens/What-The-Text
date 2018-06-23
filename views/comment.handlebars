@@ -189,7 +189,7 @@
                 $("#commentform").on("submit", function (event) {
                     event.preventDefault();
                     //window.location.href = '/userhome';
-                    $("#commentTxtArea").reset();
+                    this.reset();
 
                     var comment = {
                         comment: $('#commentTxtArea').val(),
