@@ -113,7 +113,7 @@ nav .brand-logo {
 } */
 
 .comments {
-    margin-top: 100px;
+    margin-top: 80px;
     display: block;
     height: 400px;
 }
@@ -422,7 +422,8 @@ p {
 }
 
 .commentsonlysdiv {
-      height: 300px;
+      height: 400px;
+      margin-top: 40px;
       overflow-y: scroll;
 }
 
