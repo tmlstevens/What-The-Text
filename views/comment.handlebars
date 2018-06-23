@@ -112,8 +112,8 @@
     <div class="row">
         <div class="col col s12 col m7 clickedtextarea">
             <div class="postedby">
-                {{!-- Posted on
-                <span id="datepost"></span>. --}}
+                Posted on
+                <span id="datepost"></span>
             </div>
             {{!-- screenshot goes below --}}
             <div class="specifictext card">
@@ -179,8 +179,8 @@
 
                             $('.comments').prepend('<strong>' + response.Comments[i].comment + '</strong><br><br>' + response.Comments[i].createdAt + '<br><br>');
 
-                            // var date = response.Text[i].dataValues.createdAt;
-                            // $('.datepost').append(date);
+                            var date = response.Text[i].createdAt;
+                            $('.datepost').append(date);
                         }
                         //console.log("text:" + response.Text.dataValues.id);
 
