@@ -179,11 +179,11 @@
 
 
                             //console.log("text:" + response.Text.dataValues.id);
+                        }
 
+                        var imageElem = $('<img class="commentdiv" src="' + response.image + '">')
+                        $('.specifictext').html(imageElem);
 
-                            var imageElem = $('<img class="commentdiv" src="' + response.image + '">')
-                            $('.specifictext').html(imageElem);
-                        };
                     })
 
                 $("#commentform").on("submit", function (event) {
