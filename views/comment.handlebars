@@ -183,17 +183,8 @@
 
                             var imageElem = $('<img class="commentdiv" src="' + response.image + '">')
                             $('.specifictext').html(imageElem);
-                        });
-
-
-                $.get('/api/submit-text-img')
-                    .then((response) => {
-
-                        for (var i = 0; i < response.Text.length; i++) {
-                            var date = response.Text[i].dataValues.createdAt;
-                            $('.datepost').append(date);
-
-                        });
+                        };
+                    })
 
                 $("#commentform").on("submit", function (event) {
                     event.preventDefault();
@@ -216,6 +207,16 @@
                                 });
                         })
                 })
+
+                $.get('/api/submit-text-img')
+                    .then((response) => {
+
+                        for (var i = 0; i < response.Text.length; i++) {
+                            var date = response.Text[i].dataValues.createdAt;
+                            $('.datepost').append(date);
+                        }
+
+                        });
 
                 $.get('/api/userhome')
                     .then((response) => {
@@ -308,6 +309,7 @@
                             }
                         });
                 });
+            });
 
-            })
+
         </script>
