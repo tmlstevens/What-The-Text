@@ -425,6 +425,10 @@ p {
       overflow-y: scroll;
 }
 
+.formandshare {
+    margin-top: 100px
+}
+
 .ratingsonlysdiv {
     height: 200px;
 }
