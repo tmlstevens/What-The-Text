@@ -33,7 +33,7 @@
 
             </li>
             <li>
-                <a href="/logout"><img class="door logouttarget modal-trigger onuserhome" data-target="modalsignout" src="assets/img/emojis/door.png"></a>
+                <img class="door logouttarget onuserhome" src="assets/img/emojis/door.png">
             </li>
         </ul>
     </div>
@@ -61,7 +61,7 @@
         </a>
     </li>
     <li>
-        <a class="wtfamtarget" >WTFam</i>
+        <a class="wtfamtarget">WTFam</i>
         </a>
     </li>
     <li>
@@ -123,27 +123,27 @@
 <script type="text/javascript" src="assets/javascript/uploadfile.js"></script>
 
 <script>
-    $(document).on('ready', function() {
+    $(document).on('ready', function () {
         $.get('/api/userhome')
-        .then((response) => {
-            console.log(response);
-            for (var i = 0; i < response.length; i++) {
-                var imageElem = $('<a href="/textcomments/'+ response[i].id +'"><img data-textid="'+ response[i].id +'" class="whatthetextimg" src="' + response[i].image + '"></a><br>');
-                $('.everyonestextsdiv').prepend(imageElem)
-            };
-            //var txtImgs = $('.whatthetextimg');
-            //for (var j = 0; j < txtImgs.length; j++) {
+            .then((response) => {
+                console.log(response);
+                for (var i = 0; i < response.length; i++) {
+                    var imageElem = $('<a href="/textcomments/' + response[i].id + '"><img data-textid="' + response[i].id + '" class="whatthetextimg" src="' + response[i].image + '"></a><br>');
+                    $('.everyonestextsdiv').prepend(imageElem)
+                };
+                //var txtImgs = $('.whatthetextimg');
+                //for (var j = 0; j < txtImgs.length; j++) {
                 //$('.whatthetextimg').on('click',function(request){
-                    //var textId = $(this).attr('data-textid');
-                    //$.get('/textcomments')
-                    //console.log(textId);
-                    //$.ajax('/textcomments',{
-                    //   method: 'GET',
-                    //    data: textId
-                    //})  
+                //var textId = $(this).attr('data-textid');
+                //$.get('/textcomments')
+                //console.log(textId);
+                //$.ajax('/textcomments',{
+                //   method: 'GET',
+                //    data: textId
+                //})  
                 //})
-            //}
-        });
+                //}
+            });
 
         $('.userhometarget').on('click', function (request, response) {
             window.location = "/userhome";
