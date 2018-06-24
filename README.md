@@ -17,10 +17,10 @@ What The Text?! allows users to filter the category to either check the messages
 * NSFW- Not Safe For Work, but so worth it.
 
 # TOOLS USED:
-MYSQL-To store user log in information, text messages, and comments into separate tables.
-Node/Express- To operate server for app.
-Materialize- Web page design.
-Passport.js- To authenticate the request to process username/password.
+* MYSQL-To store user log in information, text messages, and comments into separate tables.
+* Node/Express- To operate server for app.
+* Materialize- Web page design.
+* Passport.js- To authenticate the request to process username/password.
 
 # MOTIVATION:
 Our motivation behind What The Text?! was that we knew there were no online communities for text message uploads, nor gave users the ability to interact with others like Facebook, Twitter, or Instagram. 
