@@ -41,17 +41,17 @@ CREATE TABLE `comment_tbl` (
 	,FOREIGN KEY (`userId`) REFERENCES `user_tbl` (`id`)
 );
 
-CREATE TABLE `reaction_tbl` (
-	`id` INT AUTO_INCREMENT NOT NULL
-	,`like` BOOL NOT NULL
-	,`userId` INT NOT NULL
-	,`textId` INT NOT NULL
-	,`createdAt` DATETIME DEFAULT CURRENT_TIMESTAMP
-	,`updatedAt` DATETIME DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
-	,PRIMARY KEY (`id`)
-	,FOREIGN KEY (`userId`) REFERENCES `user_tbl` (`id`)
-	,FOREIGN KEY (`textId`) REFERENCES `text_tbl` (`id`)
-);
+-- CREATE TABLE `reaction_tbl` (
+-- 	`id` INT AUTO_INCREMENT NOT NULL
+-- 	,`like` BOOL NOT NULL
+-- 	,`userId` INT NOT NULL
+-- 	,`textId` INT NOT NULL
+-- 	,`createdAt` DATETIME DEFAULT CURRENT_TIMESTAMP
+-- 	,`updatedAt` DATETIME DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+-- 	,PRIMARY KEY (`id`)
+-- 	,FOREIGN KEY (`userId`) REFERENCES `user_tbl` (`id`)
+-- 	,FOREIGN KEY (`textId`) REFERENCES `text_tbl` (`id`)
+-- );
 
 -- CREATE TABLE `userReactText_tbl` (
 -- 	`id` INT AUTO_INCREMENT NOT NULL
