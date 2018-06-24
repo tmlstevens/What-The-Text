@@ -26,17 +26,6 @@ Passport.js- To authenticate the request to process username/password.
 Our motivation behind What The Text?! was that we knew there were no online communities for text message uploads, nor gave users the ability to interact with others like Facebook, Twitter, or Instagram. 
 We wanted to make something funny yet user friendly for ages 18 and older. 
 
-# DIRECTION FOR FUTURE DEVELOPMENT
-Social Sharing- Giving users the option to share their WTT experience through different social media platforms.
-Friend Invites- Send text message alert to friends to join the WTT world, and reward them on every five friends that join.
-Search Engine- Give users the option to search keywords into a search bar.
-Privacy- Give users the freedom to choose who can and cannot see their uploaded messages. 
-Upload Stats- Keeping track of user log-ins and real time updates. 
-Reaction- Give users the option to add a reaction to an uploaded screenshot (like or dislike). 
-Approve system- Have the system search for certain phrases or sentences that could be pretty disturbing (life threatening). 
-
-
-
 # SITE IMAGES:
 <img width="1071" alt="screen shot 2018-06-22 at 12 11 59 pm" src="https://user-images.githubusercontent.com/34491285/41789708-d3c65b26-7615-11e8-806f-9b1ab3ead0d9.png">
 <img width="1058" alt="screen shot 2018-06-22 at 12 12 28 pm" src="https://user-images.githubusercontent.com/34491285/41789709-d3db47e8-7615-11e8-9599-67dc9dcaa831.png">
@@ -47,6 +36,15 @@ Approve system- Have the system search for certain phrases or sentences that cou
 ![landing_login 1](https://user-images.githubusercontent.com/34491285/41195781-94525330-6bf9-11e8-890c-a8e07652d715.png)
 ![upload](https://user-images.githubusercontent.com/34491285/41195782-945e9f28-6bf9-11e8-97bc-0f7b2654e689.png)
 ![user home 1](https://user-images.githubusercontent.com/34491285/41195783-94727dcc-6bf9-11e8-96de-dccbe391fdf8.png)
+
+# DIRECTION FOR FUTURE DEVELOPMENT
+* Social Sharing- Giving users the option to share their WTT experience through different social media platforms.
+* Friend Invites- Send text message alert to friends to join the WTT world, and reward them on every five friends that join.
+* Search Engine- Give users the option to search keywords into a search bar.
+* Privacy- Give users the freedom to choose who can and cannot see their uploaded messages. 
+* Upload Stats- Keeping track of user log-ins and real time updates. 
+* Reaction- Give users the option to add a reaction to an uploaded screenshot (like or dislike). 
+* Approve system- Have the system search for certain phrases or sentences that could be pretty disturbing (life threatening). 
 
 # ROUGH BREAKDOWN OF TASKS:
 * Screen capture text convos on phone and use upload button to send screenshots to server
