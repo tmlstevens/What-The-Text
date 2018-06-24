@@ -7,7 +7,35 @@ View on Heroku <a href="https://radiant-beach-66260.herokuapp.com/">here</a>
 * Marcus Johnson
 
 # PROJECT DESCRIPTION:
-* What The Text?! is an online community where users can come together and share their funniest, craziest, or most 'What The Text?!'-worthy conversations.
+What The Text?! is an online community where users can come together and share their funniest, craziest, or most 'What The Text?!'-worthy conversations. These categories range from extremely funny, to not safe for work at all. 
+What The Text?! allows users to filter the category to either check the messages imported by other users, or submit the messages of their choice into the local community. The categories are as followed:
+* LOL- The most HA - larious text ever.
+* BFF- Where Best Friends Forever text, forever.
+* WTFam- When you receive amazing texts from your fam.
+* EW- Those that put the “mess” in message.
+* FAIL- A message that just didn’t make sense.
+* NSFW- Not Safe For Work, but so worth it.
+
+# TOOLS USED:
+MYSQL-To store user log in information, text messages, and comments into separate tables.
+Node/Express- To operate server for app.
+Materialize- Web page design.
+Passport.js- To authenticate the request to process username/password.
+
+# MOTIVATION:
+Our motivation behind What The Text?! was that we knew there were no online communities for text message uploads, nor gave users the ability to interact with others like Facebook, Twitter, or Instagram. 
+We wanted to make something funny yet user friendly for ages 18 and older. 
+
+# DIRECTION FOR FUTURE DEVELOPMENT
+Social Sharing- Giving users the option to share their WTT experience through different social media platforms.
+Friend Invites- Send text message alert to friends to join the WTT world, and reward them on every five friends that join.
+Search Engine- Give users the option to search keywords into a search bar.
+Privacy- Give users the freedom to choose who can and cannot see their uploaded messages. 
+Upload Stats- Keeping track of user log-ins and real time updates. 
+Reaction- Give users the option to add a reaction to an uploaded screenshot (like or dislike). 
+Approve system- Have the system search for certain phrases or sentences that could be pretty disturbing (life threatening). 
+
+
 
 # SITE IMAGES:
 <img width="1071" alt="screen shot 2018-06-22 at 12 11 59 pm" src="https://user-images.githubusercontent.com/34491285/41789708-d3c65b26-7615-11e8-806f-9b1ab3ead0d9.png">
