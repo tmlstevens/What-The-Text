@@ -1,5 +1,5 @@
 # PROJECT TITLE: What The Text?!
-View on Heroku <a href="https://radiant-beach-66260.herokuapp.com/">here</a>
+View on Heroku <a href="http://what-the-text.herokuapp.com/">here</a>
 
 # GROUP MEMBERS:
 * Leslie Rose
