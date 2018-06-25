@@ -30,6 +30,7 @@ We wanted to make something funny yet user friendly for ages 18 and older.
 <img width="1071" alt="screen shot 2018-06-22 at 12 11 59 pm" src="https://user-images.githubusercontent.com/34491285/41789708-d3c65b26-7615-11e8-806f-9b1ab3ead0d9.png">
 <img width="1058" alt="screen shot 2018-06-22 at 12 12 28 pm" src="https://user-images.githubusercontent.com/34491285/41789709-d3db47e8-7615-11e8-9599-67dc9dcaa831.png">
 <img width="1067" alt="screen shot 2018-06-22 at 12 12 43 pm" src="https://user-images.githubusercontent.com/34491285/41789710-d3ee82b8-7615-11e8-9b88-e4f080e8f94b.png">
+<img width="1218" alt="screen shot 2018-06-24 at 10 52 24 pm" src="https://user-images.githubusercontent.com/34491285/41829603-533549fc-7801-11e8-8ade-38d4f7633286.png">
 
 # INITIAL SKETCHES:
 ![comment on](https://user-images.githubusercontent.com/34491285/41195780-9445b2b0-6bf9-11e8-804e-638d3e0d0770.png)
