@@ -14,8 +14,15 @@ body {
     padding-top: 20px;
 }
 
+nav ul li a img:hover {
+    opacity:1.0;
+    background-color:none!important;
+}
+
 nav ul li:hover {
     background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+    padding-left: 20px;
+    margin-right: 5px;
 }
 
 .left {
@@ -40,7 +47,6 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     margin-left: auto;
 	margin-right: auto;
     display: block;
-    /* position: relative; */
 }
 
 .everyonestexts, .everyonestextsdiv {
@@ -57,15 +63,8 @@ nav .brand-logo {
     font-size: 1.6rem; 
 }
 
-.onuserhome {
-    margin-right: 30px;
-}
-
-@media only screen and (min-width: 601px){
-    nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
-        height: 80px;
-        line-height: 30px;
-    }
+.brandtitle {
+    margin-left: 5px;
 }
 
 .ewemoji, .lolemoji, .nsfwemoji, .failemoji {
@@ -73,34 +72,49 @@ nav .brand-logo {
     width: 65px;
     margin-top: 10px;
     margin-left: -5px;
+    margin-right: 30px;
 }
 
-.bffsemoji {
+.bffemoji, .bffsemoji {
     height: 61px;
     width: 64px;
     margin-top: 10px;
     margin-left: -5px;
+    margin-right: 30px;
 }
 
 .yaasemoji, nopeemoji {
     height: 65px;
     width: 90px;
+    margin-right: 30px;
 }
 
-.wtfemoji {
+.wtfamemoji, .wtfemoji {
     height: 60px;
     width: 80px;
-    margin-top: 10px; 
+    margin-top: 10px;
+    margin-right: 30px; 
 }
 
 .fameemoji {
     width: 63px;
     height: 64px;
     margin-top: 8px;
+    margin-right: 20px;
 }
+
+.door.onuserhome {
+    margin-right: 5px;
+}
+
+/* 
+.fameemoji.onuserhome {
+    margin-right: -10px;
+} */
+
 .comments {
-    margin: 10px;
     display: block;
+    height: 370px;
 }
 
 .date {
@@ -108,11 +122,11 @@ nav .brand-logo {
     display: block;
 }
 
-
 .shameemoji {
     width: 73px;
     height: 64px;
     margin-top: 8px;
+    margin-right: 20px;
 }
 
 .door {
@@ -160,7 +174,7 @@ nav .brand-logo {
 }
 
 
-h2 {
+h2, .caption {
     font-family: "wagner";
 }
 
@@ -294,9 +308,12 @@ a:hover {
     padding: 10px;
 }
 
-.textupload {
+.textupload img {
     background-color: rgb(240, 240, 240);
-    height: 600px;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
     box-shadow: 0 4px 8px 0 rgba(96, 114, 86, 0.2), 0 10px 20px 0 rgba(49, 173, 255, 0.19);
 }
 
@@ -400,20 +417,21 @@ p {
 }
 
 .commentsarea {
-      height: 500px;
+      height: 400px;
 }
 
 .commentsonlysdiv {
-      height: 300px;
+      height: 400px;
+      margin-top: 40px;
       overflow-y: scroll;
+}
+
+.formandshare {
+    margin-top: 135px
 }
 
 .ratingsonlysdiv {
     height: 200px;
-}
-
-.captiononlydiv {
-    margin-top: 10px;
 }
 
 .specifictext {
@@ -433,7 +451,17 @@ p {
 
 .textsharing {
     width: 40%;
+    margin-top: -40px;
+    margin-left: 180px;
+}
+
+.caption {
+    width: 40%;
     margin-top: 2px;
+}
+
+.captiononlydiv {
+    margin-top: -120px;
 }
 
 .hofcategory {
@@ -450,6 +478,13 @@ p {
     width: 60%;
 }
 
+@media only screen and (min-width: 601px){
+    nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+        height: 80px;
+        line-height: 30px;
+    }
+}
+
 @media (min-width:1170px) {
 
     .tabwrapperdiv {
@@ -458,6 +493,14 @@ p {
 
     ul.tabs {
         width: 69.6%;
+    }
+
+    .uploadfile {
+        margin-left: 200px!important;
+    }
+
+    .textfeedlogo {
+        margin-left: -5px!important;
     }
     
     .tabwrapper {
@@ -504,6 +547,10 @@ p {
         position: absolute;
         right: -30px;
         top: -2px;
+    }
+
+    .textfeedlogo {
+        margin-left: 250px!important;
     }
 
     .signupform {
@@ -560,6 +607,16 @@ p {
         height: 400px;
     }
 
+    .uploadfile {
+        margin-left: 200px!important;
+        margin-top: -20px;
+    }
+
+    .textfeedlogo {
+        margin-left: -120px!important;
+        width: 60%;
+    }
+
     ul.tabs {
         width: 69.6%;
     }
@@ -592,8 +649,13 @@ p {
         margin-top: 20px;
     }
 
-    .drop-area {
-        width: 5000px;
+    .uploadfile {
+        margin-left: 200px!important;
+        margin-top: -20px;
+    }
+
+    .textfeedlogo {
+        margin-left: -20px!important;
     }
 
     .longlogo {
@@ -649,6 +711,10 @@ p {
         padding-left: 60px!important;
     }
 
+    #drop-area {
+        width: 250px;
+    }
+
 }
 
 @media only screen and (min-width : 601px) and (max-width : 700px) {
@@ -660,9 +726,15 @@ p {
         width: 71.1%;
     }
 
+    .uploadfile {
+        margin-left: 130px!important;
+        margin-top: -20px;
+    }
+
     #drop-area {
-        width: 310px;
-      }
+        margin-left: -30px;
+        width: 250px
+    }
 
     .longlogo {
         width: 110%;
@@ -695,6 +767,10 @@ p {
     .showmebox {
         padding-left: 20px!important;
         text-align: center;
+    }
+
+    .uploadfile {
+        margin-left: 80px!important;
     }
 }
 
@@ -761,6 +837,10 @@ p {
 
     ul.tabs {
         width: 105%;
+    }
+
+    .uploadfile {
+        margin-left: 80.5px!important;
     }
 }
 
